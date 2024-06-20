@@ -34,7 +34,7 @@
         width: 100%;
         max-width: 800px;
       }
-    
+
       /* Custom styles */
       .nav-link {
         color: #ff38a1; /* Pink color */
@@ -60,54 +60,55 @@
         width: 100%;
         max-width: 800px;
       }
-      
-.gallery{
-    padding: 20px;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    height: 50vh;
-}
-.gallery-content{
-    width: 100%;
-    max-width: 1000px;
-}
 
-.gallery-img-header{
-    padding: 20px;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-.gallery-img-content{
-    width: 100%;
-    max-width: 300px;
-}
+      .gallery {
+        padding: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 50vh;
+      }
+      .gallery-content {
+        width: 100%;
+        max-width: 1000px;
+      }
 
-.reminder{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 20px;
-    margin-top: 50px;
+      .gallery-img-header {
+        padding: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .gallery-img-content {
+        width: 100%;
+        max-width: 300px;
+      }
 
-}
-.reminder-content{
-    width: 100%;
-    max-width: 800px;
-    text-align: start;
-}
+      .reminder {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 20px;
+        margin-top: 50px;
+      }
+      .reminder-content {
+        width: 100%;
+        max-width: 800px;
+        text-align: start;
+      }
     </style>
     <title>Document</title>
   </head>
   <body>
-    <nav class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full">
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full"
+    >
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
@@ -116,7 +117,7 @@
           class="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span
-            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500"
             >Mj</span
           >
         </a>
@@ -177,38 +178,43 @@
                 >song</a
               >
             </li>
+            <li>
+              <a
+                href="month.html"
+                class="nav-link block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >1st Monthsary</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
     <section id="header">
-  
-        <div class="header">
-          <div class="header-content">
-            <p class="text-gray-500 dark:text-gray-400 text-4xl">
-              ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
-            </p>
-            <h1
-              class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
-            >
-              Distance Means
-              <span class="text-red-500 dark:pink-blue-500">
-                So Little When Someone Means
-              </span>
-              So Much
-            </h1>
+      <div class="header">
+        <div class="header-content">
+          <p class="text-gray-500 dark:text-gray-400 text-4xl">
+            ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
+          </p>
+          <h1
+            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            Distance Means
+            <span class="text-red-500 dark:pink-blue-500">
+              So Little When Someone Means
+            </span>
+            So Much
+          </h1>
 
-            <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
-              We may be separated by distance, but our love is still solid and
-              unwavering. Our link gets stronger and our hearts get fonder with
-              every hour we spend apart.
-            </p>
-          </div>
-          <div class="header-img">
-            <Lottie id="lottie-animation" />
-          </div>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
+            We may be separated by distance, but our love is still solid and
+            unwavering. Our link gets stronger and our hearts get fonder with
+            every hour we spend apart.
+          </p>
         </div>
-
+        <div class="header-img">
+          <Lottie id="lottie-animation" />
+        </div>
+      </div>
     </section>
     <section id="cheer">
       <div class="cheer">
@@ -225,109 +231,109 @@
             </span>
           </h1>
 
-          <p class=" text-gray-500 dark:text-gray-400 lg:text-xl">
-            Life can be difficult at times, and you may feel depressed or
-            overwhelmed. Just go to our website whenever you need a reminder of
-            how much you're valued and loved. It's brimming with our best
-            recollections, heartfelt words, and all the small details that add
-            up to make our connection unique. Allow this to serve as your haven,
-            a place of solace, encouragement, and a constant reminder of the
-            precious connection we have. I'm always here for you, no matter
-            what, and we can overcome anything together.
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
+            I just wanted to let you know that you can always count on me, no
+            matter what. You can rely on me through the good times and the bad,
+            the ups and downs. Your happiness and health mean the world to me,
+            and I promise to support and look out for you no matter what.
           </p>
         </div>
       </div>
     </section>
     <section id="gallery">
-        <div class="gallery">
-          <div class="gallery-content">
-            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl">
-              Appreciating Your
-              <span class="dark:pink-blue-500 text-pink-600"> Beauty</span>
-            </h1>
+      <div class="gallery">
+        <div class="gallery-content">
+          <h1
+            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            Appreciating Your
+            <span class="dark:pink-blue-500 text-pink-600"> Beauty</span>
+          </h1>
 
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl">
-              This gallery is a tribute to the most beautiful person in my life
-              MJ Vinculado yes you ikaw . Each photo here captures your radiant
-              smile, your graceful presence, and the way your eyes light up the
-              world. From the simplest moments to the grandest occasions, your
-              beauty shines through, making every memory we share even more
-              special. Here’s to celebrating all that makes you uniquely
-              wonderful, inside and out. You are my inspiration, my joy, and my
-              forever love. 💖😍
-            </p>
-          </div>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
+            This gallery is a tribute to the most beautiful person in my life MJ
+            Vinculado yes you ikaw . Each photo here captures your radiant
+            smile, your graceful presence, and the way your eyes light up the
+            world. From the simplest moments to the grandest occasions, your
+            beauty shines through, making every memory we share even more
+            special. Here’s to celebrating all that makes you uniquely
+            wonderful, inside and out. You are my inspiration, my joy, and my
+            forever love. 💖😍
+          </p>
         </div>
+      </div>
 
-        <div class="gallery-img-header">
-          <div class="gallery-img-content">
-            <img src="../image/love11.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love2.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love13.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love14.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="/../image/love15.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love6.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love17.jpg" alt="" />
-          </div>
-          <div class="gallery-img-content">
-            <img src="../image//love16.jpg" alt="" />
-          </div>
+      <div class="gallery-img-header">
+        <div class="gallery-img-content">
+          <img src="../image/love11.jpg" alt="" />
         </div>
-      </section>
-      <section id="reminder">
-        <div class="reminder">
-          <div class="reminder-content">
-            <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl">
-              Just a little
-              <span class="dark:pink-blue-500 text-pink-600"> Reminder </span>
-              from me
-            </h1>
-  
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
-              In case you forget, let me gently remind you that you are valuable.
-              Every happy moment you bring to others, every smile that brightens a
-              room, and every effort you put into whatever you do are all worth
-              it. You are worthy of all the hopes you have, all the dreams you
-              have, and all the objectives you have set for yourself. Every bit of
-              respect you deserve, every act of kindness you perform for others,
-              and every ounce of love that wells up from your heart are all worth
-              it. You are really so amazing that you are worth everything.
-            </p>
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
-              You are so loved that you should never question your value. The
-              people in your immediate vicinity are affected by you. Everywhere
-              you go, your special light shines brilliantly, filling the room with
-              warmth and happiness. Others are inspired by your fortitude and
-              resiliency, and they are moved by your compassion.
-            </p>
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
-              Your successes and faults do not define who you are. Here, now, in
-              this moment, you are appreciated for who you are. The world is a
-              better place with you in it, and you have so much potential within
-              you. Never stop dreaming, never stop shining, and never stop
-              realizing how amazing you are.
-            </p>
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl">
+        <div class="gallery-img-content">
+          <img src="../image//love2.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="../image//love13.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="../image//love14.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="/../image/love15.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="../image//love6.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="../image//love17.jpg" alt="" />
+        </div>
+        <div class="gallery-img-content">
+          <img src="../image//love16.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+    <section id="reminder">
+      <div class="reminder">
+        <div class="reminder-content">
+          <h1
+            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            Just a little
+            <span class="dark:pink-blue-500 text-pink-600"> Reminder </span>
+            from me
+          </h1>
+
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
+            In case you forget, let me gently remind you that you are valuable.
+            Every happy moment you bring to others, every smile that brightens a
+            room, and every effort you put into whatever you do are all worth
+            it. You are worthy of all the hopes you have, all the dreams you
+            have, and all the objectives you have set for yourself. Every bit of
+            respect you deserve, every act of kindness you perform for others,
+            and every ounce of love that wells up from your heart are all worth
+            it. You are really so amazing that you are worth everything.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
+            You are so loved that you should never question your value. The
+            people in your immediate vicinity are affected by you. Everywhere
+            you go, your special light shines brilliantly, filling the room with
+            warmth and happiness. Others are inspired by your fortitude and
+            resiliency, and they are moved by your compassion.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl mb-5">
+            Your successes and faults do not define who you are. Here, now, in
+            this moment, you are appreciated for who you are. The world is a
+            better place with you in it, and you have so much potential within
+            you. Never stop dreaming, never stop shining, and never stop
+            realizing how amazing you are.
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
             With all my love and admiration,
-            </p>
-            <p class=" text-gray-500 dark:text-gray-400 lg:text-xl">
-             Kboy ε(´｡•᎑•`)っ 💕
-            </p>
-          </div>
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 lg:text-xl">
+            Kboy ε(´｡•᎑•`)っ 💕
+          </p>
         </div>
-        </section>
+      </div>
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
@@ -338,15 +344,14 @@
         loop: true,
         autoplay: true,
         path: "./image/love.json", // Replace with your animation JSON path
-
-      }); var animation = bodymovin.loadAnimation({
+      });
+      var animation = bodymovin.loadAnimation({
         container: document.getElementById("message"), // Specify the container element
         renderer: "svg",
         loop: true,
         autoplay: true,
         path: "./image/message.json", // Replace with your animation JSON path
       });
-
     </script>
   </body>
 </html>
