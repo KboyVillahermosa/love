@@ -1,9 +1,3 @@
-<!--  
- 
-  CSS Blossoming Flowers at Magical Night.
-  I've taken some inspiration by Yup Nguyen's Artwork: https://dribbble.com/shots/11096994-Virtual-Garden.
-  Made with Pure CSS & ♥
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +7,13 @@
     <title>Document</title>
 </head>
 
-
 <body class="not-loaded">
+  <!-- Add the audio player here -->
+  <audio id="background-audio" autoplay>
+    <source src="./image/duyog.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
   <div class="container">
     <div class="glass">
       <div class="shine"></div>
@@ -38,7 +37,6 @@
       <div></div>
       <div></div>
       <div></div>
-      <div></div>
     </div>
     <div class="deadPetals">
       <div></div>
@@ -47,5 +45,47 @@
       <div></div>
     </div>
   </div>
-  </body>
-  </html>
+  <section>
+    <div class="loader-header">
+      <div class="loading">
+        <svg width="64px" height="48px">
+            <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back"></polyline>
+          <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front"></polyline>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      showLoader();
+      
+      // Attempt to play the audio when the page is loaded
+      var audio = document.getElementById("background-audio");
+      var playPromise = audio.play();
+      
+      // If the play() request is interrupted by a user gesture, handle the error
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Audio is playing');
+        }).catch(error => {
+          console.log('Failed to play audio:', error);
+          // Optionally, you can add UI elements to prompt user interaction
+        });
+      }
+    });
+    
+    window.addEventListener("load", function () {
+      setTimeout(hideLoader, 1500);
+    });
+    
+    function showLoader() {
+      document.querySelector(".loader-header").style.display = "flex";
+    }
+    
+    function hideLoader() {
+      document.querySelector(".loader-header").style.display = "none";
+    }
+  </script>
+</body>
+</html>

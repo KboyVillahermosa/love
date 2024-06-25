@@ -35,6 +35,46 @@
       .nav-link:hover {
         color: pink; /* Blue on hover */
       }
+     .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+     }
+     .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+
+      max-width: 750px;
+     }
+     .message p {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.message p span {
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  animation: typeWriter 4s steps(50, end) forwards;
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: auto;
+  }
+}
+
+
  </style>
 <body>
     <nav
@@ -93,6 +133,7 @@
       </div>
     </nav>
   </section>
+  
   <section id="header">
     <div class="header">
       <div class="header-content">
@@ -100,13 +141,12 @@
           class="mb-4 text-4xl uppercase font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
         >
           <span class="text-red-500 dark:pink-blue-500">
-            Happy Monthsary Love
+            Happy 1st Monthsary Love 
           </span>
           i love you so much
         </h1>
          <div class="button">
           <button type="button" data-modal-target="static-modal" data-modal-toggle="static-modal"  class="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Message</button>
-          <a href="flower.html"><button type="button" class="focus:outline-none text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Flower</button></a>
          </div>
       </div>
       <div class="header-img">
@@ -123,7 +163,7 @@
           <!-- Modal header -->
           <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
               <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                  Static modal
+                My Message
               </h3>
               <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="static-modal">
                   <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -146,7 +186,8 @@
               <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                 More than words can say, I adore you. Many more months and years of love and happiness together are ahead of us.
               </p>
-              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400" >Happy Monthsary, my dearest! 💖</p>
+              <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-4" >Happy Monthsary, my love! 💖</p>
+              <a href="flower.html"><button type="button" class="focus:outline-none mt-4 text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">For you my love 🌹</button></a>
           </div>
           <!-- Modal footer -->
           <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
@@ -157,11 +198,58 @@
 </div>
   </section>
 
+  <section>
+    <div class="message">
+      <div class="message-content">
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-5">
+          I want you to know that I am really proud of you. You are one of the most industrious and determined individuals I have ever known.
+           Despite the problems and uncertainties you face, you continue to go forward with grace and strength. Your tenacity motivates me every day.
+        </p>
+
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-5">
+          I understand how important the decisions you're making right now are, particularly in terms of your education and future.
+           Please remember that I am with you every step of the journey. Together, we can face any challenge that comes our way.
+        </p>
+
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-5">
+          I believe in you more than words can say. Your commitment to your dreams and readiness to work hard to realize them
+           are absolutely admirable. Financial issues may appear daunting, but they do not limit your ability or what you may do.
+            Where there is determination and perseverance, there is always a path forward.
+        </p>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-5">
+          You are capable of greatness, and I am confident that you will find the correct path for yourself. I will fully support 
+          you whether you choose to continue your study or pursue a new path. Your goals are worthwhile, and I will do everything 
+          I can to help you realize them.
+        </p>
+
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400 mb-5">
+          Please remember, my love, that you are never alone on this road. Every day, I'm here to listen, support, 
+          and encourage you. You are more than simply a girlfriend; you are my partner, closest friend, and inspiration. 
+          Your strength and determination are what make you so unique.
+        
+        </p>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400"> I adore you beyond words, and I believe in you wholeheartedly.</p>
+        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">Nagmamahal😘😘 KBOY </p>
+
+
+
+      </div>
+    </div>
+  </section>
+  <section>
+    <audio id="background-audio" autoplay>
+      <source src="./image/love.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
     
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
     <script>
        var animation = bodymovin.loadAnimation({
         container: document.getElementById("love"), 
@@ -170,6 +258,38 @@
         autoplay: true,
         path: "./image/month.json", 
       });
+// Wrap each word in a span and each letter in a span
+document.querySelectorAll('.message p').forEach(p => {
+  p.innerHTML = p.textContent.split(' ').map(word => {
+    return word.split('').map(letter => `<span>${letter}</span>`).join('');
+  }).join(' ');
+});
+
+// Trigger animation when in view
+const spans = document.querySelectorAll('.message p span');
+spans.forEach((span, index) => {
+  span.style.animationDelay = `${index * 0.1}s`;
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+      showLoader();
+      
+      // Attempt to play the audio when the page is loaded
+      var audio = document.getElementById("background-audio");
+      var playPromise = audio.play();
+      
+      // If the play() request is interrupted by a user gesture, handle the error
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log('Audio is playing');
+        }).catch(error => {
+          console.log('Failed to play audio:', error);
+          // Optionally, you can add UI elements to prompt user interaction
+        });
+      }
+    });
+    
+
     </script>
 </body>
 </html>
