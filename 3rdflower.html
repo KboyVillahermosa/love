@@ -5,35 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="3rdflower.css">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <form>
         <div class="wrapper">
-          <input type="checkbox" id="ck1" onClick="check()"/>
-          <label for="ck1">I</label>
-          <input type="checkbox" id="ck2" onClick="check()"/>
-          <label for="ck2">love</label>
-          <input type="checkbox" id="ck3" onClick="check()"/>
-          <label for="ck3">you</label>
-          <span>(Click on words love)</span>
+            <input type="checkbox" id="ck1" onClick="check()"/>
+            <label for="ck1">I</label>
+            <input type="checkbox" id="ck2" onClick="check()"/>
+            <label for="ck2">love</label>
+            <input type="checkbox" id="ck3" onClick="check()"/>
+            <label for="ck3">you</label>
+            <span>(Click on words love)</span>
         </div>
-        </form>
-        <script>
-          function check() {
-  if ( document.forms[0].elements[0].checked == true && document.forms[0].elements[1].checked == true && document.forms[0].elements[2].checked == true ) {
-    if ( ! $('.wrapper').hasClass('throb')) {
-        // Do things on Nav Close
-        $('.wrapper').addClass('throb');
-    } 
-  } else {
-    if ($('.wrapper').hasClass('throb')) {
-        // Do things on Nav Close
-        $('.wrapper').removeClass('throb');
-    }
-  }
- }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    </form>
+    <audio id="bgMusic" src="./image/oksihina.mp3" preload="auto"></audio>
+    <script>
+        function check() {
+            if ($('#ck1').is(':checked') && $('#ck2').is(':checked') && $('#ck3').is(':checked')) {
+                if (!$('.wrapper').hasClass('throb')) {
+                    $('.wrapper').addClass('throb');
+                }
+                var audio = document.getElementById('bgMusic');
+                if (audio.paused) {
+                    audio.play();
+                }
+            } else {
+                if ($('.wrapper').hasClass('throb')) {
+                    $('.wrapper').removeClass('throb');
+                }
+                var audio = document.getElementById('bgMusic');
+                if (!audio.paused) {
+                    audio.pause();
+                }
+            }
+        }
+    </script>
 </body>
 </html>
