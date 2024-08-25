@@ -93,6 +93,18 @@
   display: flex;
   padding: 20px;
 }
+.counts-header{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.count-content h1{
+  font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+  font-weight: 500;
+}
+#time{
+  font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+}
  </style>
 <body>
     <nav
@@ -153,6 +165,7 @@
   </section>
   
   <section id="header">
+    
     <div class="header">
       <div class="header-content">
         <h1
@@ -186,6 +199,13 @@
         <button class="bg-red-500 text-white p-2 rounded-full">CLICK HERE</button>
       </a>
       </div>
+
+      
+      <div class="counts-header">
+        <div id="countdown" class="count-content">
+          <h1>Countdown to Our Next Monthsary 🥰😘😍</h1>
+          <div id="time"></div>
+      </div>
   </section>
   <section>
   
@@ -201,7 +221,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-   
+   <script>
+    // Set the target date for the next monthsary
+const targetDate = new Date('September 26, 2024 00:00:00').getTime();
+
+// Function to update the countdown every second
+function updateCountdown() {
+    const now = new Date().getTime();
+    const timeDifference = targetDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    document.getElementById('time').innerHTML = `
+        ${days}d ${hours}h ${minutes}m ${seconds}s
+    `;
+
+    // If the countdown is over, display a special message
+    if (timeDifference < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById('time').innerHTML = "Happy Monthsary! 🎉";
+    }
+}
+
+// Update the countdown every second
+const countdownInterval = setInterval(updateCountdown, 1000);
+
+   </script>
   
 </body>
 </html>
