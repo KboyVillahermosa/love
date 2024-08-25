@@ -105,6 +105,21 @@
 #time{
   font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
 }
+
+.video-header{
+  justify-content: center;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+ .video-content video{
+  width: 100%;
+  max-width: 600px;
+  height: 50vh;
+ }
  </style>
 <body>
     <nav
@@ -193,6 +208,29 @@
             <img src="/image/3rdd.png" alt="">
         </div>
       </div>
+
+      <div class="video-header">
+        <div class="video-content">
+          <video class="" controls loop autoplay>
+            <source
+              src="./image/love.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="video-content">
+          <video class="" controls >
+            <source
+              src="./image/love2.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
 
       <div class="flower-header">
         <a href="3rdflower.html">
