@@ -57,7 +57,7 @@ label {
   text-shadow: 3vmin 3vmin 10vmin rgba(0,0,0,0.5);
 }
   label:hover {
-    color: #c32a2a;
+    color: blue;
     cursor: pointer;
   }
 
@@ -70,7 +70,7 @@ label {
 #ck1:checked + label,
 #ck2:checked + label,
 #ck3:checked + label {
-  background: #c32a2a;
+  background: blue;
   font-size: 0;
   transition: all 1s ease;
 }
