@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Advice for You</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f2f5;
+        padding: 10px;
+      }
+      .modal,
+      .advice-section,
+      .final-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+      }
+      .modal.active,
+      .advice-section.active,
+      .final-message.active {
+        display: block;
+      }
+      .input-field,
+      .button {
+        margin: 15px 0;
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .input-field {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+      .button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        font-weight: 500;
+        color: #333;
+      }
+      #finalMessage h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #0056b3;
+      }
+      img {
+        margin-top: 15px;
+        border-radius: 8px;
+      }
+
+      @media (max-width: 600px) {
+        .modal,
+        .advice-section,
+        .final-message {
+          width: 100%;
+          max-width: none;
+          padding: 20px;
+        }
+        .input-field,
+        .button {
+          font-size: 14px;
+          padding: 10px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+        #finalMessage h2 {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal for Name Input -->
+    <div class="modal active" id="nameModal">
+      <h2>What is your name?</h2>
+      <input
+        type="text"
+        id="nameInput"
+        class="input-field"
+        placeholder="Enter your name"
+        required
+      />
+      <button class="button" onclick="getName()">Submit</button>
+    </div>
+
+    <!-- Modal for Life Advice Prompt -->
+    <div class="modal" id="advicePrompt">
+      <h2>Do you need life advice, <span id="userName"></span>?</h2>
+      <button class="button" onclick="askForAdvice(true)">Yes</button>
+      <button class="button" onclick="askForAdvice(false)">No</button>
+    </div>
+
+    <!-- Modal for Showing Advice -->
+    <div class="advice-header">
+      <div class="modal" id="adviceModal">
+        <h2 id="adviceText"></h2>
+        <button class="button" onclick="nextAdvice()">Next</button>
+      </div>
+    </div>
+
+    <!-- Final Message -->
+    <div class="final-message" id="finalMessage">
+      <h2>You can do it, I love you so much 💙 <span id="finalUserName"></span>!</h2>
+      <img src="./image/cat.webp" alt="You Can Do It" width="200" />
+    </div>
+
+    <script>
+      let userName = '';
+      let adviceIndex = 0;
+
+      const advices = [
+        "Take a deep breath and remind yourself of how far you've come.",
+        "Believe in yourself you are capable of amazing things.",
+        "Focus on the things you can control, and let go of what you can't.",
+        "Every day is a new opportunity to start fresh.",
+        "You are stronger than you think, and you can handle whatever comes your way.",
+        "It's okay to ask for help when you need it.",
+        "Be kind to yourself you're doing the best you can.",
+        "Keep moving forward, even if it's just one small step at a time.",
+        "I know things have been difficult for you recently, and I just wanted to remind you that even if we are miles apart, I am always here for you. I wish I could be there to hold you tight, but please know that you have my love and support every step of the way.",
+        "I hope this message provides some peace to your heart. You mean everything to me, and I want you to know how much I love and appreciate you. No matter how difficult things get, we'll get through it together distance will never change that."
+      ];
+
+      function getName() {
+        userName = document.getElementById('nameInput').value;
+        if (userName) {
+          document.getElementById('userName').innerText = userName;
+          document.getElementById('nameModal').classList.remove('active');
+          document.getElementById('advicePrompt').classList.add('active');
+        }
+      }
+
+      function askForAdvice(isYes) {
+        if (isYes) {
+          showAdvice();
+        } else {
+          alert("Error: Please click the Yes button lovelove :<.");
+        }
+      }
+
+      function showAdvice() {
+        document.getElementById('advicePrompt').classList.remove('active');
+        document.getElementById('adviceModal').classList.add('active');
+        document.getElementById('adviceText').innerText = advices[adviceIndex];
+      }
+
+      function nextAdvice() {
+        adviceIndex++;
+        if (adviceIndex < advices.length) {
+          document.getElementById('adviceText').innerText = advices[adviceIndex];
+        } else {
+          document.getElementById('adviceModal').classList.remove('active');
+          document.getElementById('finalUserName').innerText = userName;
+          document.getElementById('finalMessage').classList.add('active');
+        }
+      }
+    </script>
+  </body>
+</html>
