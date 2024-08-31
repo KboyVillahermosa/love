@@ -19,14 +19,18 @@
         background-color: #f0f2f5;
         padding: 10px;
       }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
       .modal,
       .advice-section,
       .final-message {
         display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
         background-color: white;
         padding: 25px;
         border-radius: 10px;
@@ -34,6 +38,7 @@
         text-align: center;
         width: 90%;
         max-width: 400px;
+        margin: 20px; /* Add margin to create padding outside */
       }
       .modal.active,
       .advice-section.active,
@@ -105,38 +110,38 @@
     </style>
   </head>
   <body>
-    <!-- Modal for Name Input -->
-    <div class="modal active" id="nameModal">
-      <h2>What is your name?</h2>
-      <input
-        type="text"
-        id="nameInput"
-        class="input-field"
-        placeholder="Enter your name"
-        required
-      />
-      <button class="button" onclick="getName()">Submit</button>
-    </div>
+    <div class="container">
+      <!-- Modal for Name Input -->
+      <div class="modal active" id="nameModal">
+        <h2>What is your name?</h2>
+        <input
+          type="text"
+          id="nameInput"
+          class="input-field"
+          placeholder="Enter your name"
+          required
+        />
+        <button class="button" onclick="getName()">Submit</button>
+      </div>
 
-    <!-- Modal for Life Advice Prompt -->
-    <div class="modal" id="advicePrompt">
-      <h2>Do you need life advice, <span id="userName"></span>?</h2>
-      <button class="button" onclick="askForAdvice(true)">Yes</button>
-      <button class="button" onclick="askForAdvice(false)">No</button>
-    </div>
+      <!-- Modal for Life Advice Prompt -->
+      <div class="modal" id="advicePrompt">
+        <h2>Do you need life advice, <span id="userName"></span>?</h2>
+        <button class="button" onclick="askForAdvice(true)">Yes</button>
+        <button class="button" onclick="askForAdvice(false)">No</button>
+      </div>
 
-    <!-- Modal for Showing Advice -->
-    <div class="advice-header">
+      <!-- Modal for Showing Advice -->
       <div class="modal" id="adviceModal">
         <h2 id="adviceText"></h2>
         <button class="button" onclick="nextAdvice()">Next</button>
       </div>
-    </div>
 
-    <!-- Final Message -->
-    <div class="final-message" id="finalMessage">
-      <h2>You can do it, I love you so much 💙 <span id="finalUserName"></span>!</h2>
-      <img src="./image/cat.webp" alt="You Can Do It" width="200" />
+      <!-- Final Message -->
+      <div class="final-message" id="finalMessage">
+        <h2>You can do it, I love you so much 💙 <span id="finalUserName"></span>!</h2>
+        <img src="./image/cat.webp" alt="You Can Do It" width="200" />
+      </div>
     </div>
 
     <script>
