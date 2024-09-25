@@ -1,0 +1,101 @@
+::selection {
+  background: #212129;
+}
+
+body {
+   background: #4c659b;
+   height: 100%;
+}
+
+#heart {
+  position: relative;
+  width: 120px;
+  height: 90px;
+  margin: 175px auto;
+  animation: pulse 1.5s ease-out infinite;
+}
+
+#heart:before,
+#heart:after {
+  position: absolute;
+  content: "";
+  left: 60px;
+  top: 0;
+  border-top: 10px solid blue;
+  width: 60px;
+  height: 80px;
+  background: blue;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  box-shadow: 2px 0px 1px rgba(30, 0, 255, 0.85);
+}
+
+#heart:before {
+  box-shadow: 2px 2px 1px rgb(55, 0, 255);
+  border-top: 10px solid rgb(55, 0, 255);
+}
+
+/* ANIMATION */
+@keyframes pulse {
+  0% {transform: scale(2);}
+  25% {transform: scale(1.8);}
+  50% {transform: scale(2.1);}
+  75% {transform: scale(2);}
+  100% {transform: scale(2);}
+}
+
+.txt {
+  font-family: monospace;
+  font-size: 54px;
+  color: #fff;
+  margin-top: -100px;
+  text-align: center;
+  font-size: 6.5em;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  animation: blur 1.25s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+@keyframes blur {
+  from {
+     text-shadow: 0px 0px 10px #fff,
+     0px 0px 10px #fff, 
+     0px 0px 25px #fff,
+     0px 10px 100px #7B96B8,
+     0px -10px 100px #7B96B8;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .txt {
+     font-size: 5em;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .txt {
+     font-size: 4em;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .txt {
+     font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .txt {
+     font-size: 2.5em;
+  }
+}

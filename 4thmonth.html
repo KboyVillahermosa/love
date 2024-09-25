@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+    rel="stylesheet"
+  />
+    <title>Love</title>
+</head>
+ <style>
+   .header {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100vh;
+        align-items: center;
+        padding: 20px;
+      }
+      @media screen and (max-width: 12500px) {
+        .header {
+          height: auto;
+          margin-top: 100px;
+        }
+      }
+      .header-content {
+        width: 100%;
+        max-width: 800px;
+      }
+     .nav-link {
+        color: #ff38a1; /* Pink color */
+      }
+      .nav-link:hover {
+        color: pink; /* Blue on hover */
+      }
+     .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+     }
+     .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+
+      max-width: 750px;
+     }
+     .message p {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.message p span {
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  animation: typeWriter 4s steps(50, end) forwards;
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: auto;
+  }
+}
+
+.third-image{
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+  
+.third-image-content{
+    width: 100%;
+    max-width: 600px;
+}
+.flower-header{
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  padding: 20px;
+}
+.counts-header{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.count-content h1{
+  font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+  font-weight: 500;
+}
+#time{
+  font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+}
+
+.video-header{
+  justify-content: center;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+ .video-content video{
+  width: 100%;
+  max-width: 600px;
+  height: 50vh;
+ }
+ </style>
+<body>
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full"
+    >
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500 uppercase text-red-500"
+            >Mj</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="nav-link block py-2 px-3 text-pink-800 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-pink-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section id="header">
+    
+    <div class="header">
+      <div class="header-content">
+        <h1
+          class="mb-4 text-4xl  font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span class="text-red-500 dark:pink-blue-500">
+            Happy 4th Monthsary, My Love! ❤️
+          </span>
+        
+        </h1>
+        <p class="text-gray-600 mt-4">
+          I just want to remind you that your happiness doesn't always need to depend on others. 
+          You’re doing so well, balancing school in the morning and work in the evening, and I know that isn’t easy. 
+          I’m so proud of how you're managing everything, but please, be gentle with yourself. 
+          Don’t overthink too much about school, friends, or life. Just do your best, and trust that it will all be worth it. 
+          Remember, just as you sometimes get caught in negative thoughts, I hope you can also take in the positivity I always try to share with you. 
+          You’re incredibly strong, and I believe in you every step of the way. Take care of yourself, my love. You're doing amazing, and I’m always here for you. 
+      </p>
+      
+      <p class="text-gray-600 mt-4">
+          I can't believe how quickly time has passed, yet every moment with you feels like a beautiful blessing. 
+          I’m so proud of you for working so hard at school and managing your time like a true superhero. 
+          Your strength, determination, and passion amaze me every day.
+      </p>
+      
+      <p class="text-gray-600 mt-4">
+          It constantly surprises me how gracefully you handle everything. You motivate me to be a better person, 
+          and I consider myself incredibly lucky to have you in my life. 
+          Your passion and resilience show just how extraordinary you are, and it makes me fall even more in love with you.
+      </p>
+      
+      <p class="text-gray-600 mt-4">
+          Even though we are far apart, my heart is always with you. Thank you for being such an amazing girlfriend and 
+          making this love journey so unforgettable. I’m excited about our future together, where we’ll face every challenge and celebrate every success. 
+      </p>
+      
+      <p class="text-gray-600 mt-4">
+          Words can't express how much I love you, but I promise to always be here to support, encourage, and cherish you without end.
+      </p>
+      
+      </div>
+    </div>
+
+    
+
+      <div class="flower-header">
+        <a href="4thgift.html">
+        <button class="bg-red-500 text-white p-2 rounded-full">CLICK HERE</button>
+      </a>
+      </div>
+  </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</body>
+</html>
