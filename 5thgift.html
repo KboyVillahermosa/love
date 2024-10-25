@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="5th.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="present" id="present">
+        
+        <div class="lid">
+            <span></span>
+        </div>
+        <div class="promo">
+            <p>Thank you for being in my life</p>
+            <h2>ILOVEYOU MY LOVE</h2>
+        </div>
+        <div class="box">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Audio element -->
+    <audio id="giftAudio" src="./image/oksihina.mp3" preload="auto"></audio>
+
+    <script>
+        const present = document.getElementById("present");
+        const giftAudio = document.getElementById("giftAudio");
+
+        const options = {
+            colors: [
+                "#34D963",
+                "#068C2C",
+                "#FF5757",
+                "#8C1414",
+                "#D9D74A",
+                "#1E91D9",
+                "#1B608C",
+            ],
+        };
+
+        present.addEventListener("mouseenter", () => {
+            confetti(options);
+            giftAudio.play(); // Play audio on hover
+        });
+        present.addEventListener("touchstart", () => {
+            confetti(options);
+            giftAudio.play(); // Play audio on touch
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+</body>
+</html>
