@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Monthsary</title>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js/dist/fireworks.min.js"></script>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #003049;
+      color: #fff;
+
+    }
+
+    .fireworks-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure it's behind the content */
+    }
+
+    header {
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: red;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+   .text-header{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: row;
+    margin-top: 50px;
+    text-align: center;
+   }
+   .gallery-header{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: row;
+    margin-top: 50px;
+    align-items: center;
+    height: 80vh;
+   }
+   .gallery-grid{
+    width: 100%;
+    max-width: 300px;
+   }
+   .gallery-grid img{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+   }
+  </style>
+</head>
+<body>
+  <div class="fireworks-container"></div>
+  <div class="text-header">
+    <div class="text-content">
+        <h1>Happy 7th Monthsary i love you</h1>
+    </div>
+  </div>
+  <section class="">
+    <div class="gallery-header">
+        <div class="gallery-grid">
+        <img src="./image/love6.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love7.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love8.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love9.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love3.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love11.jpg" alt="Memory 1">
+      </div>
+      <div class="gallery-grid">
+        <img src="./image/love2.jpg" alt="Memory 1">
+      </div>
+
+    </div
+
+  </section>
+
+  <script>
+    // Initialize Fireworks.js
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.querySelector(".fireworks-container");
+
+      const fireworks = new Fireworks(container, {
+        speed: 2,
+        acceleration: 1.05,
+        friction: 0.98,
+        gravity: 1.5,
+        particles: 150,
+        explosion: 5,
+        intensity: 50,
+        flicker: false,
+        boundaries: {
+          top: 0,
+          bottom: container.clientHeight,
+          left: 0,
+          right: container.clientWidth,
+        },
+      });
+
+      fireworks.start();
+    });
+  </script>
+</body>
+</html>
