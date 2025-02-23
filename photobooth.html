@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<title>Modern Photobooth</title>
+<style>
+/* General Styles */
+body {
+    font-family: 'Pacifico', cursive; /* Change 'Pacifico' to your chosen font */
+    margin: 0;
+
+    color: #333;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Photobooth Area */
+.photobooth {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.capture-area {
+    width: 60%;
+    padding: 15px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.results-area {
+    width: 35%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Video and Canvas */
+#video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#canvas {
+    display: none;
+}
+
+/* Countdown */
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+/* Captured Images */
+#captured-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#captured-images img {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#captured-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Download Button */
+#downloadButton {
+    background-color: purple;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+#downloadButton:hover {
+    background-color: purple;
+    transform: translateY(-2px);
+}
+
+#downloadButton:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Controls */
+.controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+    background-color: #fb00ff;
+    transform: translateY(-2px);
+}
+
+/* Frame Selector */
+.frame-selector {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.frame-selector label {
+    margin-right: 12px;
+    font-size: 16px;
+    color: #555;
+    font-weight: 500;
+}
+
+.frame-selector input[type="color"] {
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    width: 50px;
+    height: 35px;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .photobooth {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .capture-area,
+    .results-area {
+        width: 100%;
+        max-width: none;
+    }
+
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    button,
+    #downloadButton {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modern Photobooth</h1>
+        <div class="photobooth">
+            <div class="capture-area">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas" class="hidden"></canvas>
+                <div id="countdown"></div>
+            </div>
+            <div class="results-area">
+                <div id="captured-images"></div>
+                <button id="downloadButton" disabled>Download Photo Strip</button>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="startButton">Start</button>
+            <div class="frame-selector">
+                <label for="frame-color">Background Color:</label>
+                <input type="color" id="frame-color" value="#f9f9f9">
+            </div>
+        </div>
+    </div>
+
+    <script>
+       const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const capturedImages = document.getElementById('captured-images');
+const startButton = document.getElementById('startButton');
+const countdown = document.getElementById('countdown');
+const frameColor = document.getElementById('frame-color');
+const downloadButton = document.getElementById('downloadButton');
+let stream;
+let captureCount = 0;
+let images = [];
+
+async function setupCamera() {
+    try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
+        video.srcObject = stream;
+    } catch (err) {
+        console.error("Error accessing the camera:", err);
+        alert("Error accessing the camera. Please make sure you have a webcam and have granted permissions.");
+    }
+}
+
+function startCountdown() {
+    let count = 3;
+    countdown.style.display = 'block';
+    const countdownInterval = setInterval(() => {
+        countdown.textContent = count;
+        count--;
+
+        if (count < 0) {
+            clearInterval(countdownInterval);
+            countdown.style.display = 'none';
+            captureImage();
+        }
+    }, 1000);
+}
+
+function captureImage() {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0);
+
+    const imgData = canvas.toDataURL('image/jpeg');
+    images.push(imgData);
+
+    const img = document.createElement('img');
+    img.src = imgData;
+    img.alt = `Photo ${images.length}`;
+    capturedImages.appendChild(img);
+
+    captureCount++;
+
+    if (captureCount < 4) {
+        setTimeout(startCountdown, 1000);
+    } else {
+        captureCount = 0;
+        startButton.disabled = false;
+        downloadButton.disabled = false;
+    }
+}
+
+startButton.addEventListener('click', () => {
+    capturedImages.innerHTML = '';
+    images = [];
+    startButton.disabled = true;
+    downloadButton.disabled = true;
+    startCountdown();
+});
+
+frameColor.addEventListener('input', () => {
+    capturedImages.style.backgroundColor = frameColor.value;
+});
+
+downloadButton.addEventListener('click', () => {
+    downloadPhotoStrip();
+});
+
+async function downloadPhotoStrip() {
+    if (images.length === 0) {
+        alert("No images to download!");
+        return;
+    }
+
+    const imageHeight = 700;  // Increased image height
+    const imageWidth = 1000;   // Increased image width
+    const padding = 10;      // Fine-tuned padding
+    const backgroundColor = frameColor.value;
+    const text = "I love you ";
+    const textHeight = 50;  // Increased text area height
+    const bottomMargin = 50; // Margin between last image and text
+    const topMargin = 50; // Margin between last image and text
+
+    const totalHeight = (imageHeight * images.length) + (padding * (images.length - 1)) + textHeight + bottomMargin; // Adjusted total height
+    const totalWidth = imageWidth + (padding * 2);
+
+    const combinedCanvas = document.createElement('canvas');
+    combinedCanvas.width = totalWidth;
+    combinedCanvas.height = totalHeight;
+    const ctx = combinedCanvas.getContext('2d');
+
+    ctx.fillStyle = backgroundColor;
+    ctx.fillRect(0, 0, totalWidth, totalHeight);
+
+    let currentY = 0; // Start from the top
+
+    for (let i = 0; i < images.length; i++) {
+        const img = new Image();
+        img.src = images[i];
+        await new Promise(resolve => {
+            img.onload = () => {
+                const x = (totalWidth - imageWidth) / 2;
+                ctx.drawImage(img, x, currentY, imageWidth, imageHeight); // Draw images without scaling
+
+                if (i < images.length - 1) {
+                    currentY += imageHeight + padding;  // Add padding *between* images
+                } else {
+                    currentY += imageHeight + bottomMargin; // Add bottom margin *after* last image
+                }
+                resolve();
+            };
+        });
+    }
+    // Draw white background for text
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, currentY, totalWidth, textHeight);
+
+    // Draw text
+    ctx.font = '50px Arial';  // Increased font size, switched back to Arial for clarity
+    ctx.fillStyle = '#000';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, totalWidth / 2, currentY + (textHeight / 2));
+
+    const dataURL = combinedCanvas.toDataURL('image/jpeg', 0.9);
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = 'photobooth_strip.jpg';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+setupCamera();
+
+    </script>
+</body>
+</html>
