@@ -1,0 +1,277 @@
+:root {
+    --red: #be2e36;
+    --black: #000000;
+    --white: #ffffff;
+
+    --tan: #e3c597;
+    --brown: #62473b;
+    --green: #096a3f;
+}
+
+body {
+  background: #222;
+}
+
+.wrap {
+  width: 250px;
+  margin: auto;
+}
+
+h1, h2, h3 {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 300px;
+  text-align: center;
+  font-family: 'CaveStoryRegular';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 4.5rem;
+  line-height: 3rem;
+  margin: 15px;
+  color: var(--green);
+  text-shadow: 5px 5px #000;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3.5rem;
+  color: var(--red);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: translateX(-55px) rotate(5deg) scale(2); }
+}
+
+.heart {
+  position: relative;
+  left: 60px;
+  height: 10px;
+  width: 10px;
+  z-index: 1;
+  
+  animation: pulse 1.5s ease infinite;
+  
+  box-shadow:
+   30px 30px 0 0 var(--black),
+	 40px 30px 0 0 var(--black),
+	 70px 30px 0 0 var(--black),
+	 80px 30px 0 0 var(--black),
+	 20px 40px 0 0 var(--black),
+	 30px 40px 0 0 var(--white),
+	 40px 40px 0 0 var(--red),
+	 50px 40px 0 0 var(--black),
+	 60px 40px 0 0 var(--black),
+	 70px 40px 0 0 var(--red),
+	 80px 40px 0 0 var(--red),
+	 90px 40px 0 0 var(--black),
+	 20px 50px 0 0 var(--black),
+	 30px 50px 0 0 var(--white),
+	 40px 50px 0 0 var(--red),
+	 50px 50px 0 0 var(--red),
+	 60px 50px 0 0 var(--red),
+	 70px 50px 0 0 var(--red),
+	 80px 50px 0 0 var(--red),
+	 90px 50px 0 0 var(--black),
+	 20px 60px 0 0 var(--black),
+	 30px 60px 0 0 var(--red),
+	 40px 60px 0 0 var(--red),
+	 50px 60px 0 0 var(--red),
+	 60px 60px 0 0 var(--red),
+	 70px 60px 0 0 var(--red),
+	 80px 60px 0 0 var(--red),
+	 90px 60px 0 0 var(--black),
+	 30px 70px 0 0 var(--black),
+	 40px 70px 0 0 var(--red),
+	 50px 70px 0 0 var(--red),
+	 60px 70px 0 0 var(--red),
+	 70px 70px 0 0 var(--red),
+	 80px 70px 0 0 var(--black),
+	 40px 80px 0 0 var(--black),
+	 50px 80px 0 0 var(--red),
+	 60px 80px 0 0 var(--red),
+	 70px 80px 0 0 var(--black),
+	 50px 90px 0 0 var(--black),
+	 60px 90px 0 0 var(--black);
+}
+
+.link {
+  position: relative;
+  top: 75px;
+  height: 10px;
+  width: 10px;
+  
+  box-shadow:
+   50px 50px 0 0 var(--tan),
+	 60px 50px 0 0 var(--tan),
+	 100px 50px 0 0 var(--green),
+	 110px 50px 0 0 var(--green),
+	 120px 50px 0 0 var(--green),
+	 130px 50px 0 0 var(--green),
+	 170px 50px 0 0 var(--tan),
+	 180px 50px 0 0 var(--tan),
+	 50px 60px 0 0 var(--tan),
+	 60px 60px 0 0 var(--tan),
+	 70px 60px 0 0 var(--tan),
+	 90px 60px 0 0 var(--green),
+	 100px 60px 0 0 var(--brown),
+	 110px 60px 0 0 var(--brown),
+	 120px 60px 0 0 var(--brown),
+	 130px 60px 0 0 var(--brown),
+	 140px 60px 0 0 var(--green),
+	 160px 60px 0 0 var(--tan),
+	 170px 60px 0 0 var(--tan),
+	 180px 60px 0 0 var(--tan),
+	 50px 70px 0 0 var(--brown),
+	 60px 70px 0 0 var(--brown),
+	 80px 70px 0 0 var(--green),
+	 90px 70px 0 0 var(--brown),
+	 100px 70px 0 0 var(--brown),
+	 110px 70px 0 0 var(--brown),
+	 120px 70px 0 0 var(--brown),
+	 130px 70px 0 0 var(--brown),
+	 140px 70px 0 0 var(--brown),
+	 150px 70px 0 0 var(--green),
+	 170px 70px 0 0 var(--brown),
+	 180px 70px 0 0 var(--brown),
+	 50px 80px 0 0 var(--brown),
+	 60px 80px 0 0 var(--brown),
+	 70px 80px 0 0 var(--tan),
+	 80px 80px 0 0 var(--brown),
+	 90px 80px 0 0 var(--tan),
+	 100px 80px 0 0 var(--green),
+	 110px 80px 0 0 var(--tan),
+	 120px 80px 0 0 var(--tan),
+	 130px 80px 0 0 var(--green),
+	 140px 80px 0 0 var(--tan),
+	 150px 80px 0 0 var(--brown),
+	 160px 80px 0 0 var(--tan),
+	 170px 80px 0 0 var(--brown),
+	 180px 80px 0 0 var(--brown),
+	 50px 90px 0 0 var(--brown),
+	 60px 90px 0 0 var(--brown),
+	 70px 90px 0 0 var(--tan),
+	 80px 90px 0 0 var(--tan),
+	 90px 90px 0 0 var(--tan),
+	 100px 90px 0 0 var(--brown),
+	 110px 90px 0 0 var(--tan),
+	 120px 90px 0 0 var(--tan),
+	 130px 90px 0 0 var(--brown),
+	 140px 90px 0 0 var(--tan),
+	 150px 90px 0 0 var(--tan),
+	 160px 90px 0 0 var(--tan),
+	 170px 90px 0 0 var(--brown),
+	 180px 90px 0 0 var(--brown),
+	 60px 100px 0 0 var(--brown),
+	 70px 100px 0 0 var(--brown),
+	 80px 100px 0 0 var(--tan),
+	 90px 100px 0 0 var(--tan),
+	 100px 100px 0 0 var(--tan),
+	 110px 100px 0 0 var(--tan),
+	 120px 100px 0 0 var(--tan),
+	 130px 100px 0 0 var(--tan),
+	 140px 100px 0 0 var(--tan),
+	 150px 100px 0 0 var(--tan),
+	 160px 100px 0 0 var(--brown),
+	 170px 100px 0 0 var(--brown),
+	 60px 110px 0 0 var(--brown),
+	 70px 110px 0 0 var(--brown),
+	 80px 110px 0 0 var(--brown),
+	 90px 110px 0 0 var(--tan),
+	 100px 110px 0 0 var(--tan),
+	 110px 110px 0 0 var(--brown),
+	 120px 110px 0 0 var(--brown),
+	 130px 110px 0 0 var(--tan),
+	 140px 110px 0 0 var(--tan),
+	 150px 110px 0 0 var(--brown),
+	 160px 110px 0 0 var(--brown),
+	 170px 110px 0 0 var(--brown),
+	 60px 120px 0 0 var(--brown),
+	 70px 120px 0 0 var(--brown),
+	 80px 120px 0 0 var(--brown),
+	 90px 120px 0 0 var(--green),
+	 100px 120px 0 0 var(--tan),
+	 110px 120px 0 0 var(--brown),
+	 120px 120px 0 0 var(--brown),
+	 130px 120px 0 0 var(--tan),
+	 140px 120px 0 0 var(--green),
+	 150px 120px 0 0 var(--brown),
+	 160px 120px 0 0 var(--brown),
+	 170px 120px 0 0 var(--brown),
+	 70px 130px 0 0 var(--brown),
+	 80px 130px 0 0 var(--green),
+	 90px 130px 0 0 var(--green),
+	 100px 130px 0 0 var(--green),
+	 110px 130px 0 0 var(--green),
+	 120px 130px 0 0 var(--green),
+	 130px 130px 0 0 var(--green),
+	 140px 130px 0 0 var(--green),
+	 150px 130px 0 0 var(--green),
+	 160px 130px 0 0 var(--brown),
+	 70px 140px 0 0 var(--brown),
+	 80px 140px 0 0 var(--green),
+	 90px 140px 0 0 var(--green),
+	 100px 140px 0 0 var(--green),
+	 110px 140px 0 0 var(--green),
+	 120px 140px 0 0 var(--green),
+	 130px 140px 0 0 var(--green),
+	 140px 140px 0 0 var(--green),
+	 150px 140px 0 0 var(--green),
+	 160px 140px 0 0 var(--brown),
+	 70px 150px 0 0 var(--green),
+	 80px 150px 0 0 var(--green),
+	 90px 150px 0 0 var(--green),
+	 100px 150px 0 0 var(--brown),
+	 110px 150px 0 0 var(--brown),
+	 120px 150px 0 0 var(--brown),
+	 130px 150px 0 0 var(--brown),
+	 140px 150px 0 0 var(--green),
+	 150px 150px 0 0 var(--green),
+	 160px 150px 0 0 var(--green),
+	 70px 160px 0 0 var(--brown),
+	 80px 160px 0 0 var(--brown),
+	 90px 160px 0 0 var(--brown),
+	 100px 160px 0 0 var(--brown),
+	 110px 160px 0 0 var(--tan),
+	 120px 160px 0 0 var(--tan),
+	 130px 160px 0 0 var(--brown),
+	 140px 160px 0 0 var(--brown),
+	 150px 160px 0 0 var(--brown),
+	 160px 160px 0 0 var(--brown),
+	 70px 170px 0 0 var(--green),
+	 80px 170px 0 0 var(--green),
+	 90px 170px 0 0 var(--green),
+	 100px 170px 0 0 var(--brown),
+	 110px 170px 0 0 var(--brown),
+	 120px 170px 0 0 var(--brown),
+	 130px 170px 0 0 var(--brown),
+	 140px 170px 0 0 var(--green),
+	 150px 170px 0 0 var(--green),
+	 160px 170px 0 0 var(--green),
+	 70px 180px 0 0 var(--green),
+	 80px 180px 0 0 var(--green),
+	 90px 180px 0 0 var(--green),
+	 100px 180px 0 0 var(--green),
+	 110px 180px 0 0 var(--green),
+	 120px 180px 0 0 var(--green),
+	 130px 180px 0 0 var(--green),
+	 140px 180px 0 0 var(--green),
+	 150px 180px 0 0 var(--green),
+	 160px 180px 0 0 var(--green),
+	 80px 190px 0 0 var(--brown),
+	 90px 190px 0 0 var(--brown),
+	 100px 190px 0 0 var(--brown),
+	 130px 190px 0 0 var(--brown),
+	 140px 190px 0 0 var(--brown),
+	 150px 190px 0 0 var(--brown),
+	 80px 200px 0 0 var(--brown),
+	 90px 200px 0 0 var(--brown),
+	 100px 200px 0 0 var(--brown),
+	 130px 200px 0 0 var(--brown),
+	 140px 200px 0 0 var(--brown),
+	 150px 200px 0 0 var(--brown);
+}

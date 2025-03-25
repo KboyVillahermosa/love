@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+    rel="stylesheet"
+  />
+
+
+    <title>10th Monthsary i love you</title>
+</head>
+ <style>
+   .header {
+        justify-content: center;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 100vh;
+        align-items: center;
+        padding: 20px;
+      }
+      @media screen and (max-width: 12500px) {
+        .header {
+          height: auto;
+          margin-top: 100px;
+        }
+      }
+      .header-content {
+        width: 100%;
+        max-width: 800px;
+      }
+     .nav-link {
+        color: #ff38a1; /* Pink color */
+      }
+      .nav-link:hover {
+        color: pink; /* Blue on hover */
+      }
+     .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+     }
+     .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+
+      max-width: 750px;
+     }
+     .message p {
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+
+.message p span {
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  animation: typeWriter 4s steps(50, end) forwards;
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: auto;
+  }
+}
+
+.third-image{
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+  
+.third-image-content{
+    width: 100%;
+    max-width: 600px;
+}
+.flower-header{
+  justify-content: center;
+  margin-top: 20px;
+  display: flex;
+  padding: 20px;
+}
+.counts-header{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.count-content h1{
+  font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+  font-weight: 500;
+}
+#time{
+  font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+}
+
+.video-header{
+  justify-content: center;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+ .video-content video{
+  width: 100%;
+  max-width: 600px;
+  height: 50vh;
+ }
+
+ .header-image{
+   justify-content: center;
+   display: flex;
+   margin-top: 50px;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 20px;
+   padding: 20px;
+ }
+
+ .header-image-content{
+  width: 100%;
+  max-width: 700px;
+  height: 100vh;
+ }
+
+ @media screen and (max-width: 600px) {
+        .header-image-content img {
+          height: auto;
+        }
+      }
+
+      .carousel-header{
+        justify-content: center;
+        display: flex;
+        margin-top: 50px;
+        padding: 20px;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .carousel-content{
+        width: 100%;
+        max-width: 700px;
+      }
+      .carousel-content img{
+        width: 100%;
+        max-width: 700px;
+      }
+ </style>
+<body>
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500 uppercase text-red-500"
+            >Mj</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="nav-link block py-2 px-3 text-pink-800 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-pink-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section id="header">
+    
+    <div class="header">
+      <div class="header-content">
+        <h1
+          class="mb-8 text-4xl  font-extrabold leading-none tracking-tight text-gray-600 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span class="text-red-500 dark:pink-blue-500">
+        Happy 10th Monthsary My Love🌸🌷      </span>
+        </h1>
+        <p class="text-gray-600 mt-4">
+            I don’t even know where to start because there’s so much I want to say. But first, I just want to tell you how truly grateful I am for you. You have no idea how much I appreciate everything you do, the love you give, and the patience you have for me even when I don’t deserve it.
+      </p>
+      
+      <p class="text-gray-600 mt-4">
+        I know I made mistakes, and I know I let my negativity and overthinking get in the way again. For that, I am truly sorry. I never want to hurt you, never want to make you feel unappreciated or misunderstood. You are the best thing that has ever happened to me, and it breaks my heart knowing that I caused you any kind of pain. I wish I could take back the words and actions that made you upset because the last thing I want is to be the reason for your sadness.
+      </p>
+     
+      <p class="text-gray-600 mt-4">
+        But despite everything, you still choose me. Even when I mess up, even when I make things difficult, you still stand by my side. And that means more to me than I could ever express. Thank you for your love, for your patience, for your understanding. Thank you for always seeing the good in me, even when I struggle to see it myself. You make me want to be a better person, to grow, to learn, and to love you the way you truly deserve.
+      </p>
+      <p class="text-gray-600 mt-4">
+        I want you to know that I will always choose you, just as you choose me. No matter the distance, no matter the challenges, my heart belongs to you, and only you. I don’t take your love for granted I cherish it, I treasure it, and I will do my best to prove that to you every single day.
+      </p>
+      <p class="text-gray-600 mt-4">
+        I love you more than words can ever describe. You are my home, my happiness, and my heart. I’m so lucky to have you, and I will keep reminding you of that for as long as I live.
+      </p>
+      <p class="text-gray-600 mt-4">
+        I’m sorry for everything, my lovelove. Thank you for staying. Thank you for loving me. Thank you for being you. 
+      </div>
+    </div>
+    <div class="header-title justify-center flex mt-8">
+      <h1 class="text-4xl text-pink-500">I love You (˶˃ ᵕ ˂˶)</h1>
+    </div>
+    <div class="carousel-header">
+        <div class="carousel-content">
+            <img src="./image/10th.png" alt="">
+
+        </div>
+    </div>
+
+    
+
+      <div class="flower-header">
+        <a href="9th-flower.html">
+        <button class="bg-red-500 text-white p-2 rounded-full">CLICK HERE</button>
+      </a>
+      </div>
+  </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</body>
+</html>
