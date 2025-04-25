@@ -1,20 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<title>Modern Photobooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Love Photobooth</title>
 <style>
 /* General Styles */
 body {
-    font-family: 'Pacifico', cursive; /* Change 'Pacifico' to your chosen font */
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-
     color: #333;
-    height: 100vh;
+    min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    background-color: #f9f2ff;
+    background-image: linear-gradient(135deg, #fce7fe 0%, #e0d4ff 100%);
 }
 
 .container {
@@ -22,16 +24,41 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 30px;
-    border-radius: 12px;
-
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 30px rgba(181, 104, 196, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    font-family: 'Pacifico', cursive;
+    background: linear-gradient(90deg, #a742e2, #f3a7ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 30px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    font-size: 3rem;
+    position: relative;
+}
+
+h1::after {
+    content: "✨";
+    position: absolute;
+    font-size: 1.5rem;
+    top: 0;
+    right: calc(50% - 120px);
+}
+
+h1::before {
+    content: "✨";
+    position: absolute;
+    font-size: 1.5rem;
+    top: 0;
+    left: calc(50% - 120px);
 }
 
 /* Photobooth Area */
@@ -39,33 +66,67 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 30px;
 }
 
 .capture-area {
     width: 60%;
-    padding: 15px;
+    padding: 20px;
     position: relative;
     box-sizing: border-box;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(230, 178, 255, 0.4);
+}
+
+.capture-area:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(167, 66, 226, 0.15);
 }
 
 .results-area {
     width: 35%;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(230, 178, 255, 0.4);
 }
 
 /* Video and Canvas */
 #video {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 4px solid white;
+    outline: 1px solid #f0d4ff;
 }
 
 #canvas {
     display: none;
+}
+
+/* Frame Overlays */
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.frame-overlay.active {
+    opacity: 1;
 }
 
 /* Countdown */
@@ -74,10 +135,17 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 60px;
+    font-size: 80px;
+    font-weight: bold;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 8px rgba(128, 0, 128, 0.7);
     z-index: 10;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+    to { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
 }
 
 /* Captured Images */
@@ -86,94 +154,207 @@ h1 {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 15px;
     box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    min-height: 200px;
 }
 
 #captured-images img {
     width: 100%;
     max-width: 280px;
     margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 4px solid white;
+    outline: 1px solid #f0d4ff;
 }
 
 #captured-images img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(176, 38, 255, 0.2);
 }
 
-/* Download Button */
-#downloadButton {
-    background-color: purple;
+/* Buttons */
+button, #downloadButton {
+    background: linear-gradient(135deg, #b721ff, #8a2be2);
     color: white;
     padding: 14px 28px;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
-    margin-top: 25px;
     font-size: 18px;
     font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(183, 33, 255, 0.25);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
 }
 
-#downloadButton:hover {
-    background-color: purple;
-    transform: translateY(-2px);
+button:hover, #downloadButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(183, 33, 255, 0.4);
+    background: linear-gradient(135deg, #c837ff, #9d3dff);
+}
+
+button:active, #downloadButton:active {
+    transform: translateY(1px);
+}
+
+#downloadButton {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#downloadButton::before {
+    content: "📥";
+    font-size: 20px;
 }
 
 #downloadButton:disabled {
-    background-color: #bdc3c7;
+    background: linear-gradient(135deg, #d4d4d4, #a0a0a0);
     cursor: not-allowed;
     transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Controls */
 .controls {
     text-align: center;
     margin-top: 30px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(230, 178, 255, 0.4);
 }
 
-button {
-    background-color: purple;
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-}
-
-button:hover {
-    background-color: #fb00ff;
-    transform: translateY(-2px);
+#startButton::before {
+    content: "📸";
+    margin-right: 8px;
 }
 
 /* Frame Selector */
 .frame-selector {
     margin-top: 20px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .frame-selector label {
-    margin-right: 12px;
     font-size: 16px;
-    color: #555;
+    color: #8a2be2;
     font-weight: 500;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .frame-selector input[type="color"] {
     border: none;
-    border-radius: 6px;
-    padding: 8px;
+    border-radius: 10px;
+    padding: 3px;
     cursor: pointer;
-    width: 50px;
-    height: 35px;
+    width: 60px;
+    height: 40px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.frame-selector input[type="color"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(183, 33, 255, 0.2);
+}
+
+/* Frame Options */
+.frame-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.frame-option {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: all 0.2s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.frame-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(183, 33, 255, 0.3);
+}
+
+.frame-option.active {
+    border-color: #b721ff;
+    box-shadow: 0 0 12px rgba(183, 33, 255, 0.5);
+}
+
+/* Camera Quality Selector */
+.quality-selector {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.quality-selector label {
+    font-size: 16px;
+    color: #8a2be2;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.quality-selector select {
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(183, 33, 255, 0.3);
+    background-color: white;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quality-selector select:hover {
+    border-color: rgba(183, 33, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(183, 33, 255, 0.1);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #9772a9;
+    font-size: 14px;
+    position: relative;
+}
+
+.footer::before, .footer::after {
+    content: "💕";
+    margin: 0 10px;
+    font-size: 16px;
 }
 
 /* Hidden Class */
@@ -195,12 +376,16 @@ button:hover {
     }
 
     .container {
-        padding: 20px;
+        padding: 20px 15px;
         margin: 10px;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 2.2rem;
+    }
+
+    h1::after, h1::before {
+        display: none;
     }
 
     button,
@@ -208,15 +393,52 @@ button:hover {
         font-size: 16px;
         padding: 12px 24px;
     }
+    
+    .frame-option {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Animation for elements */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container > * {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.controls {
+    animation: fadeIn 0.8s 0.2s ease-out backwards;
+}
+
+.results-area {
+    animation: fadeIn 0.8s 0.3s ease-out backwards;
+}
+
+/* Animation for frame switching */
+@keyframes frameFadeIn {
+    from { opacity: 0; transform: scale(1.1); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.frame-overlay.active {
+    animation: frameFadeIn 0.4s ease-out forwards;
 }
 </style>
 </head>
 <body>
     <div class="container">
-        <h1>Modern Photobooth</h1>
+        <h1>Love Photobooth</h1>
         <div class="photobooth">
             <div class="capture-area">
                 <video id="video" autoplay playsinline></video>
+                <img id="cat-frame" class="frame-overlay" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAwIDEyMEMyNTAuNSAxMjAgNTYuNSAyMDAgNTYuNSA1NDBDNTYuNSA4ODAgMjUwLjUgOTUwIDUwMCA5NTBDNzQ5LjUgOTUwIDk1MCA4ODAgOTUwIDU0MEM5NTAgMjAwIDc0OS41IDEyMCA1MDAgMTIwWiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMCIvPjxwYXRoIGQ9Ik0yMjAgMTQwQzE3MCAxNTAgMTMwIDE4MCAxMjAgMjgwQzExMCAzODAgMTQwIDQ0MCAyMDAgNDYwQzI2MCA0ODAzMDAgNDYwIDMyMCA0MzBDMzQwIDQwMCAzMDAgMzQwIDI4MCAzMjBDMjYwIDMwMCAyMjAgMzEwIDIyMCAxNDAiIGZpbGw9IiNmOGQ1ZmYiLz48cGF0aCBkPSJNNzgwIDE0MEM4MzAgMTUwIDg3MCAxODAgODgwIDI4MEM4OTAgMzgwIDg2MCA0NDAgODAwIDQ2MEM3NDAgNDgwIDcwMCA0NjAgNjgwIDQzMEM2NjAgNDAwIDcwMCAzNDAgNzIwIDMyMEM3NDAgMzAwIDc4MCAzMTAgNzgwIDE0MCIgZmlsbD0iI2Y4ZDVmZiIvPjxwYXRoIGQ9Ik01MDAgNjAwQzQ1MCA2MDAgNDUwIDYyMCA0NTAgNjQwQzQ1MCA2NjAgNTAwIDY4MCA1MDAgNjgwQzUwMCA2ODAgNTUwIDY2MCA1NTAgNjQwQzU1MCA2MjAgNTUwIDYwMCA1MDAgNjAwWiIgZmlsbD0iI2ZmYTZlNyIvPjxwYXRoIGQ9Ik0zMzAgNTAwQzM1MCA1MzAgMzkwIDUzMCA0MDUgNTAwQzQyMCA0NzAgMzkwIDQ0MCAzNzAgNDQwQzM1MCA0NDAzMjAgNDcwIDMzMCA1MDAiIGZpbGw9ImJsYWNrIi8+PHBhdGggZD0iTTY3MCA1MDBDNjUwIDUzMCA2MTAgNTMwIDU5NSA1MDBDNTU2MCA0NzAgNjEwIDQ0MCA2MzAgNDQwQzY1MCA0NDAgNjgwIDQ3MCA2NzAgNTAwIiBmaWxsPSJibGFjayIvPjwvc3ZnPg==" alt="Cat Frame">
+                <img id="heart-frame" class="frame-overlay" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAwIDEyMEMyNTAuNSAxMjAgNTYuNSAyMDAgNTYuNSA1NDBDNTYuNSA4ODAgMjUwLjUgOTUwIDUwMCA5NTBDNzQ5LjUgOTUwIDk1MCA4ODAgOTUwIDU0MEM5NTAgMjAwIDc0OS41IDEyMCA1MDAgMTIwWiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMCIvPjxwYXRoIGQ9Ik0xMDAgMTAwIE00MCA0MCBDLTMwIDkwIDMwIDE4MCA2MCAxODQgQzEwMCAxOTAgMTYwIDEzMCAxNjAgMTMwIEMxNjAgMTMwIDIyMCAxOTAgMjYwIDE4NCBDMjkwIDE4MCAzNTAgOTAgMjgwIDQwIEMyMTAgLTEwIDE2MCAxMDAgMTYwIDEwMCBDMTYwIDEwMCAxMTAgLTEwIDQwIDQwIFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMCwxMDApIHNjYWxlKDMuNSkiIGZpbGw9IiNmZjk5ZTIiIGZpbGwtb3BhY2l0eT0iMC4zIiBzdHJva2U9IiNmZjY2ZDQiIHN0cm9rZS13aWR0aD0iMTAiIC8+PHBhdGggZD0iTTEwMCAxMDAgTTQwIDQwIEMtMzAgOTAgMzAgMTgwIDYwIDE4NCBDMTA1IDE5MCAxNjAgMTMwIDE2MCAxMzAgQzE2MCAxMzAgMjE1IDE5MCAyNjAgMTg0IEMyOTAgMTgwIDM1MCA5MCAyODAgNDAgQzIxMCAtMTAgMTYwIDEwMCAxNjAgMTAwIEMxNjAgMTAwIDExMCAtMTAgNDAgNDAgWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAwLDYwMCkgc2NhbGUoMC42KSIgZmlsbD0iI2ZmOTllMiIgZmlsbC1vcGFjaXR5PSIwLjQiIHN0cm9rZT0iI2ZmNjZkNCIgc3Ryb2tlLXdpZHRoPSI4IiAvPjwvc3ZnPg==" alt="Heart Frame">
+                <img id="bunny-frame" class="frame-overlay" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAwIDEyMEMyNTAuNSAxMjAgNTYuNSAyMDAgNTYuNSA1NDBDNTYuNSA4ODAgMjUwLjUgOTUwIDUwMCA5NTBDNzQ5LjUgOTUwIDk1MCA4ODAgOTUwIDU0MEM5NTAgMjAwIDc0OS41IDEyMCA1MDAgMTIwWiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMCIvPjxwYXRoIGQ9Ik0yMDAgOTBDMjAwIDkwIDE2NSA0MCAxMzUgNzBDMTA1IDEwMCAxMjAgMTUwIDE4MCAxODBDMjQwIDIxMCAyNTAgMTgwIDI1MCAxNTBDMjUwIDEyMCAyMzAgOTAgMjAwIDkwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTIwLDUwKSBzY2FsZSgyLjIpIiBmaWxsPSIjZmZlZmZiIiBzdHJva2U9IiNmZmNjZjkiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik0yMDAgOTBDMjAwIDkwIDE2NSA0MCAxMzUgNzBDMTA1IDEwMCAxMjAgMTUwIDE4MCAxODBDMjQwIDIxMCAyNTAgMTgwIDI1MCAxNTBDMjUwIDEyMCAyMzAgOTAgMjAwIDkwWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzAwLDUwKSBzY2FsZSgyLjIpIiBmaWxsPSIjZmZlZmZiIiBzdHJva2U9IiNmZmNjZjkiIHN0cm9rZS13aWR0aD0iNSIvPjxwYXRoIGQ9Ik00NDAgNjAwIEM0NDAgNjAwIDQ3MCA2MjAgNTAwIDYyMCBDNTMwIDYyMCA1NjAgNjAwIDU2MCA2MDAgQzU2MCA2MDAgNTQ1IDY1MCA1MDAgNjUwIEM0NTUgNjUwIDQ0MCA2MDAgNDQwIDYwMCBaIiBmaWxsPSIjZmZkNmYzIi8+PHBhdGggZD0iTTMzMCA1MjBDMzMwIDUyMCAzNTAgNDkwIDM4MCA1MjAgQzQxMCA1NTAgMzgwIDU3MCAzNjAgNTcwIEMzNDAgNTcwIDMzMCA1NTAgMzMwIDUyMCBaIiBmaWxsPSJibGFjayIvPjxwYXRoIGQ9Ik02NzAgNTIwQzY3MCA1MjAgNjUwIDQ5MCA2MjAgNTIwIEM1OTAgNTUwIDYyMCA1NzAgNjQwIDU3MCBDQ2VDNjBtMCA2NzAgNTUwIDY3MCA1MjAgWiIgZmlsbD0iYmxhY2siLz48L3N2Zz4=" alt="Bunny Frame">
+                <img id="crown-frame" class="frame-overlay" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSI4MDAiIHZpZXdCb3g9IjAgMCAxMDAwIDgwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNTAwIDEyMEMyNTAuNSAxMjAgNTYuNSAyMDAgNTYuNSA1NDBDNTYuNSA4ODAgMjUwLjUgOTUwIDUwMCA5NTBDNzQ5LjUgOTUwIDk1MCA4ODAgOTUwIDU0MEM5NTAgMjAwIDc0OS41IDEyMCA1MDAgMTIwWiIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMCIvPjxwYXRoIGQ9Ik0yNTAgOTAgTDI5MCA0MCBMMTV2MDAgOTAgTDMzMCA0MCBMMzgwIDkwIEw0MjAgNDAgTDQ3MCA5MCBMNTE1IDQwIEw1NzAgOTAgTDYyMCA0MCBMNjgwIDkwIE03MzUgNDAgTDc5MCA5MCBMNDU1IDkwIEgzNDUgViAxMzAgSDQ1NSBaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDAsNDApIHNjYWxlKDEpIiBmaWxsPSIjZmZkNzAwIiBzdHJva2U9IiNmZjk5MDAiIHN0cm9rZS13aWR0aD0iNiIvPjxwYXRoIGQ9Ik0zMDAgNzAgQzMzMCA3MCAzNDAgOTAgMzQwIDEyMCBDMzQwIDE1MCAzMTAgMTYwIDMwMCAxNjAgQzI5MCAxNjAgMjYwIDE1MCAyNjAgMTIwIEMyNjAgOTAgMjcwIDcwIDMwMCA3MCBaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMDAsNTApIiBmaWxsPSIjZmYwMDY2Ii8+PHBhdGggZD0iTTMwMCA3MCBDMzMwIDcwIDM0MCA5MCAzNDAgMTIwIEMzNDAgMTUwIDMxMCAxNjAgMzAwIDE2MCBDMjkwIDE2MCAyNjAgMTUwIDI2MCAxMjAgQzI2MCA5MCAyNzAgNzAgMzAwIDcwIFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQwMCw1MCkiIGZpbGw9IiM2NmZmZmYiLz48cGF0aCBkPSJNMzAwIDcwIEMzMzAgNzAgMzQwIDkwIDM0MCAxMjAgQzM0MCAxNTAgMzEwIDE2MCAzMDAgMTYwIEMyOTAgMTYwIDI2MCAxNTAgMjYwIDEyMCBDMjYwIDkwIDI3MCA3MCAzMDAgNzAgWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAwLDUwKSIgZmlsbD0iIzAwZmY2NiIvPjwvc3ZnPg==" alt="Crown Frame">
                 <canvas id="canvas" class="hidden"></canvas>
                 <div id="countdown"></div>
             </div>
@@ -226,159 +448,440 @@ button:hover {
             </div>
         </div>
         <div class="controls">
-            <button id="startButton">Start</button>
+            <button id="startButton">Take Photos</button>
+            
             <div class="frame-selector">
                 <label for="frame-color">Background Color:</label>
-                <input type="color" id="frame-color" value="#f9f9f9">
+                <input type="color" id="frame-color" value="#f8e1fc">
+                
+                <div class="quality-selector">
+                    <label for="camera-quality">Camera Quality:</label>
+                    <select id="camera-quality">
+                        <option value="low">Standard</option>
+                        <option value="medium" selected>Good</option>
+                        <option value="high">Best</option>
+                    </select>
+                </div>
+                
+                <label style="margin-top: 15px;">Choose a Cute Frame:</label>
+                <div class="frame-options">
+                    <div class="frame-option" id="no-frame" style="background-color: #f0f0f0;" title="No Frame"></div>
+                    <div class="frame-option" id="cat-option" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTM1IDMwQzMwIDMyIDI1IDM1IDI0IDQwQzIzIDQ1IDI1IDUwIDMwIDUxQzM1IDUyIDQwIDUwIDQyIDQ3QzQ0IDQ0IDQwIDQyIDM4IDQwQzM2IDM4IDM1IDM4IDM1IDMwWiIgZmlsbD0iI2Y4ZDVmZiIvPjxwYXRoIGQ9Ik02NSAzMEM3MCAzMiA3NSAzNSA3NiA0MEM3NyA0NSA3NSA1MCA3MCA1MUM2NSA1MiA2MCA1MCA1OCA0N0M1NiA0NCA2MCA0MiA2MiA0MEM2NCAzOCA2NSAzOCA2NSAzMFoiIGZpbGw9IiNmOGQ1ZmYiLz48cGF0aCBkPSJNNTAgNjBDNDcuNSA2MCA0Ny41IDYxIDQ3LjUgNjJDNDcuNSA2MyA1MCA2NCA1MCA2NEM1MCA2NCA1Mi41IDYzIDUyLjUgNjJDNTIuNSA2MSA1Mi41IDYwIDUwIDYwWiIgZmlsbD0iI2ZmYTZlNyIvPjxwYXRoIGQ9Ik00MiA1MEM0NCA1MiA0NiA1MiA0Ny41IDUwQzQ5IDQ4IDQ2IDQ2IDQ1IDQ2QzQ0IDQ2IDQwIDQ4IDQyIDUwWiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNNTggNTBDNTYgNTIgNTQgNTIgNTIuNSA1MEM1MSA0OCA1NCA0NiA1NSA0NkM1NiA0NiA2MCA0OCA1OCA1MFoiIGZpbGw9ImJsYWNrIi8+PC9zdmc+');" title="Cat Frame"></div>
+                    <div class="frame-option" id="heart-option" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUwIDkwQzUwIDkwIDgwIDYwIDgwIDQwQzgwIDI1IDY1IDIwIDUwIDQwQzM1IDIwIDIwIDI1IDIwIDQwQzIwIDYwIDUwIDkwIDUwIDkwWiIgZmlsbD0iI2ZmOTllMiIgZmlsbC1vcGFjaXR5PSIwLjUiIHN0cm9rZT0iI2ZmNjZkNCIgc3Ryb2tlLXdpZHRoPSIzIi8+PC9zdmc+');" title="Heart Frame"></div>
+                    <div class="frame-option" id="bunny-option" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTMwIDIwQzMwIDIwIDI1IDEwIDIwIDE1QzE1IDIwIDE4IDMwIDI4IDM1QzM4IDQwIDQwIDM1IDQwIDMwQzQwIDI1IDM1IDIwIDMwIDIwWiIgZmlsbD0iI2ZmZWZmYiIgc3Ryb2tlPSIjZmZjY2Y5IiBzdHJva2Utd2lkdGg9IjIiLz48cGF0aCBkPSJNNzAgMjBDNzAgMjAgNzUgMTAgODAgMTVDODUgMjAgODIgMzAgNzIgMzVDNjIgNDAgNjAgMzUgNjAgMzBDNjAgMjUgNjUgMjAgNzAgMjBaIiBmaWxsPSIjZmZlZmZiIiBzdHJva2U9IiNmZmNjZjkiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik00NSA2MCBDNDU2MCA0NyA2MiA1MCA2MiA1MCBDNTYgNTAgNTUgNjUgNTAgNjUgQzQ1IDY1IDQ0IDUwIE00NSA2MCBaIiBmaWxsPSIjZmZkNmYzIi8+PHBhdGggZD0iTTM1IDUyQzM1IDUyIDM4IDQ5IDQwIDUyIEM0MiA1NSA0MCA1NyAzOCA1NyBDMzYgNTcgMzUgNTUgMzUgNTIgWiIgZmlsbD0iYmxhY2siLz48cGF0aCBkPSJNNjUgNTJDNjUgNTIgNjIgNDkgNjAgNTIgQzU4IDU1IDYwIDU3IDYyIDU3IEM2NCA1NyA2NSA1NSA2NSA1MiBaIiBmaWxsPSJibGFjayIvPjwvc3ZnPg==');" title="Bunny Frame"></div>
+                    <div class="frame-option" id="crown-option" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDUwIEwyMCAyMCBMMzUgNTAgTDUwIDIwIEw2NSA1MCBMODA5MC8PIHQwIEw0NSA3MCBINTV2IDIwIEw0NSBaIiBmaWxsPSIjZmZkNzAwIiBzdHJva2U9IiNmZjk5MDAiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0zMCAzMCBDMzMgMzAgMzQgMzMgMzQgMzYgQzM0IDM5IDMxIDQwIDMwIDQwIEMyOSA0MCAyNiAzOSAyNiAzNiBDMjYgMzMgMjcgMzAgMzAgMzAgWiIgZmlsbD0iI2ZmMDA2NiIvPjxwYXRoIGQ9Ik01MCAzMCBDNTMgMzAgNTQgMzMgNTQgMzYgQzU0IDM5IDUxIDQwIDUwIDQwIEM0OSA0MCA0NiAzOSA0NiAzNiBDNDYgMzMgNDcgMzAgNTAgMzAgWiIgZmlsbD0iIzY2ZmZmZiIvPjxwYXRoIGQ9Ik03MCAzMCBDNzMgMzAgNzQgMzMgNzQgMzYgQzc0IDM5IDcxIDQwIDcwIDQwIEM2OSA0MCA2NiAzOSA2NiAzNiBDNjYgMzMgNjcgMzAgNzAgMzAgWiIgZmlsbD0iIzAwZmY2NiIvPjwvc3ZnPg==');" title="Crown Frame"></div>
+                </div>
             </div>
+        </div>
+        <div class="footer">
+            Create beautiful memories together
         </div>
     </div>
 
     <script>
-       const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const capturedImages = document.getElementById('captured-images');
-const startButton = document.getElementById('startButton');
-const countdown = document.getElementById('countdown');
-const frameColor = document.getElementById('frame-color');
-const downloadButton = document.getElementById('downloadButton');
-let stream;
-let captureCount = 0;
-let images = [];
-
-async function setupCamera() {
-    try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' }, audio: false });
-        video.srcObject = stream;
-    } catch (err) {
-        console.error("Error accessing the camera:", err);
-        alert("Error accessing the camera. Please make sure you have a webcam and have granted permissions.");
-    }
-}
-
-function startCountdown() {
-    let count = 3;
-    countdown.style.display = 'block';
-    const countdownInterval = setInterval(() => {
-        countdown.textContent = count;
-        count--;
-
-        if (count < 0) {
-            clearInterval(countdownInterval);
-            countdown.style.display = 'none';
-            captureImage();
-        }
-    }, 1000);
-}
-
-function captureImage() {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
-
-    const imgData = canvas.toDataURL('image/jpeg');
-    images.push(imgData);
-
-    const img = document.createElement('img');
-    img.src = imgData;
-    img.alt = `Photo ${images.length}`;
-    capturedImages.appendChild(img);
-
-    captureCount++;
-
-    if (captureCount < 4) {
-        setTimeout(startCountdown, 1000);
-    } else {
-        captureCount = 0;
-        startButton.disabled = false;
-        downloadButton.disabled = false;
-    }
-}
-
-startButton.addEventListener('click', () => {
-    capturedImages.innerHTML = '';
-    images = [];
-    startButton.disabled = true;
-    downloadButton.disabled = true;
-    startCountdown();
-});
-
-frameColor.addEventListener('input', () => {
-    capturedImages.style.backgroundColor = frameColor.value;
-});
-
-downloadButton.addEventListener('click', () => {
-    downloadPhotoStrip();
-});
-
-async function downloadPhotoStrip() {
-    if (images.length === 0) {
-        alert("No images to download!");
-        return;
-    }
-
-    const imageHeight = 700;  // Increased image height
-    const imageWidth = 1000;   // Increased image width
-    const padding = 10;      // Fine-tuned padding
-    const backgroundColor = frameColor.value;
-    const text = "I love you ";
-    const textHeight = 50;  // Increased text area height
-    const bottomMargin = 50; // Margin between last image and text
-    const topMargin = 50; // Margin between last image and text
-
-    const totalHeight = (imageHeight * images.length) + (padding * (images.length - 1)) + textHeight + bottomMargin; // Adjusted total height
-    const totalWidth = imageWidth + (padding * 2);
-
-    const combinedCanvas = document.createElement('canvas');
-    combinedCanvas.width = totalWidth;
-    combinedCanvas.height = totalHeight;
-    const ctx = combinedCanvas.getContext('2d');
-
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, totalWidth, totalHeight);
-
-    let currentY = 0; // Start from the top
-
-    for (let i = 0; i < images.length; i++) {
-        const img = new Image();
-        img.src = images[i];
-        await new Promise(resolve => {
-            img.onload = () => {
-                const x = (totalWidth - imageWidth) / 2;
-                ctx.drawImage(img, x, currentY, imageWidth, imageHeight); // Draw images without scaling
-
-                if (i < images.length - 1) {
-                    currentY += imageHeight + padding;  // Add padding *between* images
-                } else {
-                    currentY += imageHeight + bottomMargin; // Add bottom margin *after* last image
-                }
-                resolve();
-            };
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const capturedImages = document.getElementById('captured-images');
+    const startButton = document.getElementById('startButton');
+    const countdown = document.getElementById('countdown');
+    const frameColor = document.getElementById('frame-color');
+    const downloadButton = document.getElementById('downloadButton');
+    const cameraQuality = document.getElementById('camera-quality');
+    let stream;
+    let captureCount = 0;
+    let images = [];
+    let currentFrame = null;
+    
+    // Frame elements
+    const frameOptions = document.querySelectorAll('.frame-option');
+    const catFrame = document.getElementById('cat-frame');
+    const heartFrame = document.getElementById('heart-frame');
+    const bunnyFrame = document.getElementById('bunny-frame');
+    const crownFrame = document.getElementById('crown-frame');
+    
+    // Add event listeners for frame selection
+    frameOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Remove active class from all options
+            frameOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to selected option
+            this.classList.add('active');
+            
+            // Hide all frames
+            catFrame.classList.remove('active');
+            heartFrame.classList.remove('active');
+            bunnyFrame.classList.remove('active');
+            crownFrame.classList.remove('active');
+            
+            // Show the selected frame
+            currentFrame = this.id.replace('-option', '');
+            if (currentFrame === 'cat') {
+                catFrame.classList.add('active');
+            } else if (currentFrame === 'heart') {
+                heartFrame.classList.add('active');
+            } else if (currentFrame === 'bunny') {
+                bunnyFrame.classList.add('active');
+            } else if (currentFrame === 'crown') {
+                crownFrame.classList.add('active');
+            } else {
+                currentFrame = null;
+            }
         });
+    });
+    
+    // Set default frame option
+    document.getElementById('no-frame').classList.add('active');
+
+    async function setupCamera() {
+        try {
+            // Get camera with selected quality
+            const quality = cameraQuality.value;
+            let constraints = { video: { facingMode: 'user' }, audio: false };
+            
+            // Add quality constraints based on selection
+            if (quality === 'high') {
+                constraints.video.width = { ideal: 1920 };
+                constraints.video.height = { ideal: 1080 };
+            } else if (quality === 'medium') {
+                constraints.video.width = { ideal: 1280 };
+                constraints.video.height = { ideal: 720 };
+            }
+            
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            
+            stream = await navigator.mediaDevices.getUserMedia(constraints);
+            video.srcObject = stream;
+            
+            // Wait for video to be ready
+            await new Promise(resolve => {
+                video.onloadedmetadata = () => {
+                    resolve();
+                };
+            });
+            
+        } catch (err) {
+            console.error("Error accessing the camera:", err);
+            alert("Error accessing the camera. Please make sure you have a webcam and have granted permissions.");
+        }
     }
-    // Draw white background for text
-    ctx.fillStyle = '#fff';
-    ctx.fillRect(0, currentY, totalWidth, textHeight);
 
-    // Draw text
-    ctx.font = '50px Arial';  // Increased font size, switched back to Arial for clarity
-    ctx.fillStyle = '#000';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(text, totalWidth / 2, currentY + (textHeight / 2));
+    function startCountdown() {
+        let count = 3;
+        countdown.style.display = 'block';
+        const countdownInterval = setInterval(() => {
+            countdown.textContent = count;
+            count--;
 
-    const dataURL = combinedCanvas.toDataURL('image/jpeg', 0.9);
-    const a = document.createElement('a');
-    a.href = dataURL;
-    a.download = 'photobooth_strip.jpg';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
+            if (count < 0) {
+                clearInterval(countdownInterval);
+                countdown.style.display = 'none';
+                captureImage();
+            }
+        }, 1000);
+    }
 
-setupCamera();
+    function captureImage() {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext('2d');
+        
+        // Draw the video frame
+        ctx.drawImage(video, 0, 0);
+        
+        // Add a cute frame overlay from selected frame
+        if (currentFrame && currentFrame !== 'no-frame') {
+            const frameImg = document.getElementById(`${currentFrame}-frame`);
+            ctx.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+        }
+        
+        // Add a colored border
+        ctx.strokeStyle = frameColor.value;
+        ctx.lineWidth = 15;
+        ctx.strokeRect(0, 0, canvas.width, canvas.height);
+        
+        // Add a subtle white border inside
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
+        ctx.lineWidth = 8;
+        ctx.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
 
+        const imgData = canvas.toDataURL('image/jpeg');
+        images.push(imgData);
+
+        const img = document.createElement('img');
+        img.src = imgData;
+        img.alt = `Photo ${images.length}`;
+        capturedImages.appendChild(img);
+
+        captureCount++;
+
+        if (captureCount < 4) {
+            setTimeout(startCountdown, 1000);
+        } else {
+            captureCount = 0;
+            startButton.disabled = false;
+            downloadButton.disabled = false;
+        }
+    }
+
+    startButton.addEventListener('click', () => {
+        capturedImages.innerHTML = '';
+        images = [];
+        startButton.disabled = true;
+        downloadButton.disabled = true;
+        startCountdown();
+    });
+
+    frameColor.addEventListener('input', () => {
+        capturedImages.style.backgroundColor = frameColor.value;
+    });
+    
+    cameraQuality.addEventListener('change', () => {
+        setupCamera();
+    });
+
+    downloadButton.addEventListener('click', () => {
+        downloadPhotoStrip();
+    });
+
+    async function downloadPhotoStrip() {
+        if (images.length === 0) {
+            alert("No images to download!");
+            return;
+        }
+
+        const imageHeight = 700;
+        const imageWidth = 1000;
+        const padding = 15;
+        const backgroundColor = frameColor.value;
+        const text = "I love you ❤️";
+        const textHeight = 80;
+        const bottomMargin = 60;
+        const topMargin = 60;
+
+        const totalHeight = topMargin + (imageHeight * images.length) + (padding * (images.length - 1)) + textHeight + bottomMargin;
+        const totalWidth = imageWidth + (padding * 2);
+
+        const combinedCanvas = document.createElement('canvas');
+        combinedCanvas.width = totalWidth;
+        combinedCanvas.height = totalHeight;
+        const ctx = combinedCanvas.getContext('2d');
+
+        // Create gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 0, totalHeight);
+        gradient.addColorStop(0, lightenColor(backgroundColor, 10));
+        gradient.addColorStop(1, darkenColor(backgroundColor, 10));
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, totalWidth, totalHeight);
+
+        // Add decorative elements
+        drawDecorations(ctx, totalWidth, totalHeight, backgroundColor);
+
+        let currentY = topMargin;
+
+        for (let i = 0; i < images.length; i++) {
+            const img = new Image();
+            img.src = images[i];
+            await new Promise(resolve => {
+                img.onload = () => {
+                    const x = (totalWidth - imageWidth) / 2;
+                    
+                    // Draw white border for image
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(x - 10, currentY - 10, imageWidth + 20, imageHeight + 20);
+                    
+                    // Draw actual image
+                    ctx.drawImage(img, x, currentY, imageWidth, imageHeight);
+
+                    // Add decorative corners
+                    drawCorners(ctx, x, currentY, imageWidth, imageHeight);
+
+                    if (i < images.length - 1) {
+                        currentY += imageHeight + padding;
+                    } else {
+                        currentY += imageHeight + bottomMargin;
+                    }
+                    resolve();
+                };
+            });
+        }
+        
+        // Draw heart-shaped text background
+        const textY = currentY;
+        ctx.fillStyle = '#ffffff';
+        roundRect(ctx, 50, textY, totalWidth - 100, textHeight, 40, true);
+        
+        // Draw heart decorations around text
+        const heartSize = 25;
+        ctx.fillStyle = lightenColor(backgroundColor, 20);
+        drawHeart(ctx, 80, textY + (textHeight/2), heartSize);
+        drawHeart(ctx, totalWidth - 80, textY + (textHeight/2), heartSize);
+
+        // Draw text with shadow
+        ctx.font = 'bold 60px Pacifico';
+        const gradient2 = ctx.createLinearGradient(0, textY, 0, textY + textHeight);
+        gradient2.addColorStop(0, '#ff5e9a');
+        gradient2.addColorStop(1, '#8a2be2');
+        ctx.fillStyle = gradient2;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+        ctx.shadowBlur = 4;
+        ctx.shadowOffsetX = 2;
+        ctx.shadowOffsetY = 2;
+        ctx.fillText(text, totalWidth / 2, textY + (textHeight / 2));
+        ctx.shadowColor = 'transparent';
+
+        // Add date at the bottom
+        const date = new Date().toLocaleDateString();
+        ctx.font = '24px Poppins';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'right';
+        ctx.fillText(date, totalWidth - 60, totalHeight - 30);
+
+        const dataURL = combinedCanvas.toDataURL('image/jpeg', 0.92);
+        const a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'love_photobooth.jpg';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    // Helper function to draw a rounded rectangle
+    function roundRect(ctx, x, y, width, height, radius, fill) {
+        ctx.beginPath();
+        ctx.moveTo(x + radius, y);
+        ctx.lineTo(x + width - radius, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+        ctx.lineTo(x + width, y + height - radius);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+        ctx.lineTo(x + radius, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+        ctx.lineTo(x, y + radius);
+        ctx.quadraticCurveTo(x, y, x + radius, y);
+        ctx.closePath();
+        if (fill) {
+            ctx.fill();
+        } else {
+            ctx.stroke();
+        }
+    }
+
+    // Helper function to draw corners
+    function drawCorners(ctx, x, y, width, height) {
+        const cornerSize = 30;
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 5;
+        
+        // Top left
+        ctx.beginPath();
+        ctx.moveTo(x, y + cornerSize);
+        ctx.lineTo(x, y);
+        ctx.lineTo(x + cornerSize, y);
+        ctx.stroke();
+        
+        // Top right
+        ctx.beginPath();
+        ctx.moveTo(x + width - cornerSize, y);
+        ctx.lineTo(x + width, y);
+        ctx.lineTo(x + width, y + cornerSize);
+        ctx.stroke();
+        
+        // Bottom right
+        ctx.beginPath();
+        ctx.moveTo(x + width, y + height - cornerSize);
+        ctx.lineTo(x + width, y + height);
+        ctx.lineTo(x + width - cornerSize, y + height);
+        ctx.stroke();
+        
+        // Bottom left
+        ctx.beginPath();
+        ctx.moveTo(x + cornerSize, y + height);
+        ctx.lineTo(x, y + height);
+        ctx.lineTo(x, y + height - cornerSize);
+        ctx.stroke();
+    }
+
+    // Helper function to draw a heart
+    function drawHeart(ctx, x, y, size) {
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.bezierCurveTo(x, y - size/2, x - size, y - size/2, x - size, y);
+        ctx.bezierCurveTo(x - size, y + size/1.5, x, y + size, x, y + size);
+        ctx.bezierCurveTo(x, y + size, x + size, y + size/1.5, x + size, y);
+        ctx.bezierCurveTo(x + size, y - size/2, x, y - size/2, x, y);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // Helper function to draw decorations on the background
+    function drawDecorations(ctx, width, height, color) {
+        // Draw small hearts around the borders
+        const heartCount = 10;
+        const heartSize = 15;
+        ctx.fillStyle = lightenColor(color, 20);
+        
+        for (let i = 0; i < heartCount; i++) {
+            // Top edge
+            drawHeart(ctx, (width/(heartCount-1)) * i, 20, heartSize);
+            // Bottom edge
+            drawHeart(ctx, (width/(heartCount-1)) * i, height - 20, heartSize);
+        }
+        
+        // Draw corner decorations
+        ctx.fillStyle = '#ffffff';
+        ctx.globalAlpha = 0.2;
+        drawCornerDeco(ctx, 20, 20, 80, 80);
+        drawCornerDeco(ctx, width - 100, 20, 80, 80);
+        drawCornerDeco(ctx, 20, height - 100, 80, 80);
+        drawCornerDeco(ctx, width - 100, height - 100, 80, 80);
+        ctx.globalAlpha = 1.0;
+    }
+
+    // Helper function to draw corner decorations
+    function drawCornerDeco(ctx, x, y, width, height) {
+        // Draw decorative swirl
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.bezierCurveTo(x + width/2, y, x + width/2, y + height/2, x + width, y + height);
+        ctx.bezierCurveTo(x + width/2, y + height/2, x, y + height/2, x, y);
+        ctx.fill();
+    }
+
+    // Helper function to lighten a color
+    function lightenColor(color, percent) {
+        const num = parseInt(color.replace("#", ""), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) + amt,
+        G = (num >> 8 & 0x00FF) + amt,
+        B = (num & 0x0000FF) + amt;
+        return "#" + (
+            0x1000000 + 
+            (R < 255 ? (R < 0 ? 0 : R) : 255) * 0x10000 +
+            (G < 255 ? (G < 0 ? 0 : G) : 255) * 0x100 +
+            (B < 255 ? (B < 0 ? 0 : B) : 255)
+        ).toString(16).slice(1);
+    }
+
+    // Helper function to darken a color
+    function darkenColor(color, percent) {
+        const num = parseInt(color.replace("#", ""), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) - amt,
+        G = (num >> 8 & 0x00FF) - amt,
+        B = (num & 0x0000FF) - amt;
+        return "#" + (
+            0x1000000 + 
+            (R > 0 ? (R > 255 ? 255 : R) : 0) * 0x10000 +
+            (G > 0 ? (G > 255 ? 255 : G) : 0) * 0x100 +
+            (B > 0 ? (B > 255 ? 255 : B) : 0)
+        ).toString(16).slice(1);
+    }
+
+    setupCamera();
     </script>
 </body>
 </html>
