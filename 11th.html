@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,6 +215,251 @@
       pointer-events: none;
       z-index: -1;
     }
+
+    /* Interactive features CSS */
+    .memory-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 15px;
+    }
+    
+    .memory-box {
+      width: 300px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 102, 179, 0.25);
+      transition: all 0.4s ease;
+    }
+    
+    .memory-box:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(255, 102, 179, 0.4);
+      z-index: 1;
+    }
+    
+    .memory-box img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .memory-box:hover img {
+      transform: scale(1.1);
+    }
+    
+    .memory-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 102, 179, 0.8);
+      color: white;
+      padding: 12px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      text-align: center;
+    }
+    
+    .memory-box:hover .memory-caption {
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .memory-gallery {
+        gap: 15px;
+      }
+      
+      .memory-box {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .memory-box {
+        width: 100%;
+        height: 300px;
+        max-width: 350px;
+      }
+      
+      .memory-caption {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+    }
+    
+    /* Countdown timer */
+    .countdown-container {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      margin: 30px auto;
+      max-width: 500px;
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .countdown-title {
+      color: #ff66b3;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 15px;
+    }
+    
+    .countdown-display {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+    }
+    
+    .countdown-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff66b3;
+    }
+    
+    .countdown-label {
+      font-size: 14px;
+      color: #888;
+    }
+    
+    /* Interactive heart button */
+    .heart-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 30px;
+      color: #ff66b3;
+      transition: transform 0.3s ease;
+      margin: 20px auto;
+      display: block;
+    }
+    
+    .heart-button:hover {
+      transform: scale(1.3);
+    }
+    
+    .heart-count {
+      display: block;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      color: #ff66b3;
+    }
+    
+    /* Music player */
+    .music-player {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    
+    .music-title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    /* Modal */
+    .love-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      animation: modalFadeIn 0.5s ease;
+      border: 3px solid #ff66b3;
+    }
+    
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #ff66b3;
+    }
+    
+    /* Interactive love note */
+    .note-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .note-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ffcce0;
+      border-radius: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      margin-bottom: 15px;
+      resize: none;
+    }
+    
+    .note-send {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .note-send:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+    }
  </style>
 <body>
     <div class="floating-hearts" id="hearts-container"></div>
@@ -334,7 +578,7 @@
     
     <div class="carousel-header">
       <div class="carousel-content">
-        <img src="./image/10th.png" alt="">
+        <img src="./image/11g.png" alt="">
       </div>
     </div>
 
@@ -342,6 +586,79 @@
       <a href="10th-gift.html">
         <button class="gift-button">♡ Click For Your Special Gift ♡</button>
       </a>
+    </div>
+
+    <!-- New interactive countdown to 1 year anniversary -->
+    <div class="countdown-container">
+      <h3 class="countdown-title">Counting Down To Our 1 Year Anniversary</h3>
+      <div class="countdown-display" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Interactive heart button -->
+    <div class="text-center">
+      <button id="heart-button" class="heart-button">❤️</button>
+      <span class="heart-count" id="heart-count">Click the heart to show your love!</span>
+    </div>
+    
+    <!-- Memory gallery -->
+    <h2 class="text-center mt-12 mb-6 text-3xl font-pacifico text-pink-500">Our Precious Memories</h2>
+    <div class="memory-gallery">
+      <div class="memory-box">
+        <img src="./image/11.jpg" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300?text=Our+Memory'">
+        <div class="memory-caption">Grind malala</div>
+      </div>
+      <div class="memory-box">
+        <img src="./image/13.jpg" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300?text=Our+Memory'">
+        <div class="memory-caption">Late night calls</div>
+      </div>
+      <div class="memory-box">
+        <img src="./image/114.jpg" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300?text=Our+Memory'">
+        <div class="memory-caption">Cutieee</div>
+      </div>
+    </div>
+    
+    <!-- Music player -->
+    <div class="music-player">
+      <h3 class="music-title">Our Song</h3>
+      <audio controls style="width: 100%">
+        <source src="./image/feb14.mp3" type="audio/mpeg" onerror="this.parentElement.innerHTML = 'Add your special song audio file here'">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    
+    <!-- Interactive love note -->
+    <div class="note-container">
+      <h3 class="text-xl font-pacifico text-pink-500 mb-3">Write me back a love note</h3>
+      <textarea class="note-textarea" id="love-note" placeholder="Write your love note here..."></textarea>
+      <button class="note-send" id="send-note">Send Love Note 💌</button>
+    </div>
+    
+    <!-- Love modal -->
+    <div class="love-modal" id="love-modal">
+      <div class="modal-content">
+        <span class="close-modal" id="close-modal">&times;</span>
+        <h2 class="text-2xl font-pacifico text-pink-500 mb-4">I Love You So Much!</h2>
+        <p class="font-dancing-script text-lg mb-4">Every moment with you is a blessing. Thank you for being my everything.</p>
+        <div id="special-message" class="my-4 text-xl font-dancing-script text-pink-500"></div>
+        <img src="./image/kiss.gif" alt="Love GIF" style="max-width: 200px; margin: 0 auto;" onerror="this.src='https://via.placeholder.com/200x200?text=Love+GIF'">
+      </div>
     </div>
   </section>
 
@@ -394,6 +711,124 @@
       }
     `;
     document.head.appendChild(style);
+    
+    // Anniversary countdown timer
+    function updateCountdown() {
+      // Set the date for your 1 year anniversary
+      const anniversary = new Date("2025-05-25T00:00:00"); // Update with your actual date
+      const now = new Date();
+      
+      const diff = anniversary - now;
+      
+      // Check if anniversary has passed
+      if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById("days").innerText = days.toString().padStart(2, "0");
+      document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
+    }
+    
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Interactive heart button
+    let heartCount = 0;
+    const heartButton = document.getElementById("heart-button");
+    const heartCountDisplay = document.getElementById("heart-count");
+    
+    heartButton.addEventListener("click", function() {
+      heartCount++;
+      
+      // Create multiple floating hearts on click
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => createHeart(), i * 100);
+      }
+      
+      // Update text based on number of clicks
+      if (heartCount === 1) {
+        heartCountDisplay.innerText = "You've sent 1 heart! I love you too!";
+      } else if (heartCount < 10) {
+        heartCountDisplay.innerText = `You've sent ${heartCount} hearts! Keep going!`;
+      } else if (heartCount < 20) {
+        heartCountDisplay.innerText = `${heartCount} hearts! You really love me!`;
+      } else {
+        heartCountDisplay.innerText = `${heartCount} hearts! You're amazing! I love you infinitely!`;
+      }
+      
+      // Show modal after certain number of hearts
+      if (heartCount === 10) {
+        showModal("You're the sweetest! Thank you for the hearts!");
+      }
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById("love-modal");
+    const closeModal = document.getElementById("close-modal");
+    
+    function showModal(message) {
+      document.getElementById("special-message").innerText = message || "I love you more than words can express!";
+      modal.style.display = "flex";
+    }
+    
+    closeModal.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+    
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+    
+    // Interactive love note
+    const sendNote = document.getElementById("send-note");
+    
+    sendNote.addEventListener("click", function() {
+      const note = document.getElementById("love-note").value;
+      if (note.trim() !== "") {
+        showModal("Your message: \"" + note + "\"\n\nThank you for your sweet words! I love you!");
+        document.getElementById("love-note").value = "";
+      } else {
+        alert("Please write a love note before sending!");
+      }
+    });
+    
+    // Memory gallery hover effect (already handled by CSS)
+    
+    // Easter egg - konami code
+    let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          showModal("You found the secret code! You're amazing! 💕");
+          
+          // Create heart explosion
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => createHeart(), i * 50);
+          }
+          
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
   </script>
 </body>
 </html>
