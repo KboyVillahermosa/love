@@ -7,18 +7,81 @@
   <link rel="stylesheet" href="11flower.css">
   <!-- Audio element added to play background music -->
   <audio id="backgroundMusic" loop>
-    <source src="./image/flower11.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="./image/f11.mp3" type="audio/mpeg">
+    Your browser does not support the a11udio element.
   </audio>
+  <style>
+    /* Message animation styles */
+    .message-container {
+      position: fixed;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 999;
+      opacity: 0;
+      animation: fadeInMessage 3s ease-in-out 5s forwards;
+    }
+    
+    .message {
+      display: inline-block;
+      padding: 15px 25px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      font-size: 24px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      transform: translateY(20px);
+      animation: floatMessage 3s ease-in-out infinite alternate;
+    }
+    
+    .message span {
+      opacity: 0;
+      display: inline-block;
+      animation: letterAppear 0.3s ease-in-out forwards;
+    }
+    
+    @keyframes fadeInMessage {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    
+    @keyframes floatMessage {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-10px); }
+    }
+    
+    @keyframes letterAppear {
+      0% { 
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <body class="not-loaded">
+    <a href="11th.html" style="position: fixed; top: 20px; left: 20px; z-index: 1000; padding: 10px 15px; background: rgba(255, 0, 0, 0.3); border: none; border-radius: 5px; cursor: pointer; text-decoration: none; color: #ffffff; font-family: Arial, sans-serif; font-weight: bold; display: flex; align-items: center;">
+        <span style="margin-right: 5px;">←</span> Back
+      </a>
     <!-- Sound control button added in a fixed position -->
     <button id="soundControl" style="position: fixed; top: 20px; right: 20px; z-index: 1000; padding: 10px; background: rgba(255, 255, 255, 0.3); border: none; border-radius: 50%; cursor: pointer;">
       <span id="soundIcon">🔊</span>
     </button>
+    
+    <!-- Message container added -->
+    <div class="message-container">
+      <div class="message" id="animatedMessage"></div>
+    </div>
     
     <div class="night"></div>
     <div class="flowers">
@@ -352,6 +415,19 @@
           backgroundMusic.pause();
           soundIcon.textContent = '🔇';
         }
+      });
+      
+      // Animated message functionality
+      const message = "Blooming just for you... ❤️";
+      const messageElement = document.getElementById('animatedMessage');
+      let delay = 0;
+      
+      // Create and animate each letter with a sequential delay
+      [...message].forEach((letter, index) => {
+        const span = document.createElement('span');
+        span.textContent = letter;
+        span.style.animationDelay = `${5.5 + (index * 0.1)}s`; // Start after page loads plus letter sequence
+        messageElement.appendChild(span);
       });
     };
   </script>
