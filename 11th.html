@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+    rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <title>11th Monthsary I Love You</title>
+</head>
+ <style>
+   body {
+     background-color: #fff9fb;
+     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 H 90 V 90 H 10 L 10 10" fill="none" stroke-width="1" stroke-dasharray="0.5,4" stroke="rgba(255,166,193,0.3)"/><circle cx="50" cy="50" r="5" fill="rgba(255,166,193,0.3)"/></svg>');
+   }
+   .header {
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100vh;
+      align-items: center;
+      padding: 20px;
+    }
+    @media screen and (max-width: 12500px) {
+      .header {
+        height: auto;
+        margin-top: 100px;
+      }
+    }
+    .header-content {
+      width: 100%;
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    .nav-link {
+      color: #ff38a1; /* Pink color */
+    }
+    .nav-link:hover {
+      color: pink; /* Blue on hover */
+    }
+    .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+    }
+    .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+      max-width: 750px;
+    }
+    .message p {
+      position: relative;
+      color: white;
+      overflow: hidden;
+    }
+
+    .message p span {
+      opacity: 0;
+      position: relative;
+      display: inline-block;
+      animation: typeWriter 4s steps(50, end) forwards;
+    }
+
+    @keyframes typeWriter {
+      from {
+        width: 0;
+      }
+      to {
+        opacity: 1;
+        width: auto;
+      }
+    }
+
+    .third-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .third-image-content{
+      width: 100%;
+      max-width: 600px;
+    }
+    .flower-header{
+      justify-content: center;
+      margin-top: 20px;
+      display: flex;
+      padding: 20px;
+    }
+    .counts-header{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .count-content h1{
+      font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+      font-weight: 500;
+    }
+    #time{
+      font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+    }
+
+    .video-header{
+      justify-content: center;
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .video-content video{
+      width: 100%;
+      max-width: 600px;
+      height: 50vh;
+    }
+
+    .header-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .header-image-content{
+      width: 100%;
+      max-width: 700px;
+      height: 100vh;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-image-content img {
+        height: auto;
+      }
+    }
+
+    .carousel-header{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      padding: 20px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .carousel-content{
+      width: 100%;
+      max-width: 700px;
+    }
+    .carousel-content img{
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    h1.title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .letter p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #585858;
+    }
+    
+    .heart-divider {
+      text-align: center;
+      margin: 15px 0;
+      color: #ff66b3;
+      font-size: 24px;
+    }
+    
+    .gift-button {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+    
+    .gift-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 102, 179, 0.4);
+    }
+    
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+ </style>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500 uppercase text-red-500"
+            >Mj</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="nav-link block py-2 px-3 text-pink-800 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-pink-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section id="header">
+    <div class="header">
+      <div class="header-content letter">
+        <h1 class="mb-8 title text-center text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
+          Happy 11th Monthsary My Love 💕
+        </h1>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          My dearest love,
+        </p>
+        
+        <p class="mt-4">
+          As we celebrate our 11th month together, I find myself falling even deeper in love with you. Every day that passes, my heart grows fonder, and I'm just so incredibly grateful to have you in my life. The distance between us may be challenging, but it's nothing compared to the strength of what we share.
+        </p>
+        
+        <p class="mt-4">
+          I want to thank you for choosing me every single day. Through the good times and the difficult ones, you've remained by my side, showing me what true love and commitment really mean. Your patience, understanding, and unwavering support have changed my life in ways I never thought possible.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          Being a part of your life is the greatest gift I could ever ask for. I cherish every call, every message, every moment we share despite the miles between us. You make me feel like the luckiest person in the world, and I promise to never take that for granted.
+        </p>
+        
+        <p class="mt-4">
+          I'm so incredibly proud of you - your strength, your kindness, your determination. Watching you grow and achieve your dreams makes my heart swell with pride and admiration. You inspire me every day to be a better person.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          When we're apart, I find myself counting down the days until I can hold you again. But until then, please know that my heart is always with you, no matter the distance. Our love transcends time zones and borders - nothing can diminish what we share.
+        </p>
+        
+        <p class="mt-4">
+          Here's to 11 beautiful months of us, and to many, many more ahead. I promise to love you more with each passing day, to support your dreams, and to be your safe haven whenever you need one.
+        </p>
+        
+        <p class="mt-4">
+          I love you beyond words, beyond measure, beyond distance. Today, tomorrow, and always.
+        </p>
+        
+        <div class="mt-6 text-right">
+          <p>Forever yours,</p>
+          <p>Your love ♡</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header-title justify-center flex mt-8">
+      <h1 class="text-4xl font-pacifico text-pink-500">I love You (˶˃ ᵕ ˂˶)</h1>
+    </div>
+    
+    <div class="carousel-header">
+      <div class="carousel-content">
+        <img src="./image/10th.png" alt="">
+      </div>
+    </div>
+
+    <div class="flower-header">
+      <a href="10th-gift.html">
+        <button class="gift-button">♡ Click For Your Special Gift ♡</button>
+      </a>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  
+  <script>
+    // Create floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      heart.style.position = 'absolute';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.color = `rgba(255, ${Math.floor(Math.random() * 100) + 100}, ${Math.floor(Math.random() * 100) + 100}, ${Math.random() * 0.5 + 0.5})`;
+      heart.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+      heart.innerHTML = '♡';
+      heart.style.animation = 'float 3s linear forwards';
+      
+      document.getElementById('hearts-container').appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    
+    setInterval(createHeart, 300);
+    
+    // CSS for the floating animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
