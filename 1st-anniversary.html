@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+    rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <title>1st Anniversary I Love You</title>
+</head>
+ <style>
+   body {
+     background-color: #fff9fb;
+     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 H 90 V 90 H 10 L 10 10" fill="none" stroke-width="1" stroke-dasharray="0.5,4" stroke="rgba(255,166,193,0.3)"/><circle cx="50" cy="50" r="5" fill="rgba(255,166,193,0.3)"/></svg>');
+   }
+   .header {
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100vh;
+      align-items: center;
+      padding: 20px;
+    }
+    @media screen and (max-width: 12500px) {
+      .header {
+        height: auto;
+        margin-top: 100px;
+      }
+    }
+    .header-content {
+      width: 100%;
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    .nav-link {
+      color: #ff38a1; /* Pink color */
+    }
+    .nav-link:hover {
+      color: pink; /* Blue on hover */
+    }
+    .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+    }
+    .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+      max-width: 750px;
+    }
+    .message p {
+      position: relative;
+      color: white;
+      overflow: hidden;
+    }
+
+    .message p span {
+      opacity: 0;
+      position: relative;
+      display: inline-block;
+      animation: typeWriter 4s steps(50, end) forwards;
+    }
+
+    @keyframes typeWriter {
+      from {
+        width: 0;
+      }
+      to {
+        opacity: 1;
+        width: auto;
+      }
+    }
+
+    .third-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .third-image-content{
+      width: 100%;
+      max-width: 600px;
+    }
+    .flower-header{
+      justify-content: center;
+      margin-top: 20px;
+      display: flex;
+      padding: 20px;
+    }
+    .counts-header{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .count-content h1{
+      font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+      font-weight: 500;
+    }
+    #time{
+      font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+    }
+
+    .video-header{
+      justify-content: center;
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .video-content video{
+      width: 100%;
+      max-width: 600px;
+      height: 50vh;
+    }
+
+    .header-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .header-image-content{
+      width: 100%;
+      max-width: 700px;
+      height: 100vh;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-image-content img {
+        height: auto;
+      }
+    }
+
+    .carousel-header{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      padding: 20px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .carousel-content{
+      width: 100%;
+      max-width: 700px;
+    }
+    .carousel-content img{
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    h1.title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .letter p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.25rem;
+      line-height: 1.9;
+      color: #4a4a4a;
+      letter-spacing: 0.01em;
+      margin-bottom: 1rem;
+      text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Add improved readability for the letter text */
+    .letter p {
+      position: relative;
+      padding: 0 6px;
+      font-weight: 500;
+    }
+    
+    .letter p::first-letter {
+      font-size: 1.5em;
+      color: #ff66b3;
+      font-weight: bold;
+    }
+    
+    .letter p:hover {
+      color: #333;
+      transform: scale(1.01);
+      transition: transform 0.3s ease;
+    }
+    
+    .letter .highlight {
+      font-weight: bold;
+      color: #ff66b3;
+    }
+    
+    .heart-highlight {
+      display: inline-block;
+      color: #ff66b3;
+      font-weight: bold;
+      position: relative;
+    }
+    
+    .heart-highlight::after {
+      content: "♡";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 0.8em;
+      opacity: 0.8;
+    }
+    
+    /* Responsive text adjustments */
+    @media (max-width: 768px) {
+      .letter p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+      
+      .letter p::first-letter {
+        font-size: 1.4em;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .letter p {
+        font-size: 1rem;
+        line-height: 1.6;
+        letter-spacing: 0;
+      }
+      
+      .letter p::first-letter {
+        font-size: 1.3em;
+      }
+    }
+    
+    .heart-divider {
+      text-align: center;
+      margin: 15px 0;
+      color: #ff66b3;
+      font-size: 24px;
+    }
+    
+    .gift-button {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+    
+    .gift-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 102, 179, 0.4);
+    }
+    
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Interactive features CSS */
+    .memory-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 15px;
+    }
+    
+    .memory-box {
+      width: 300px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 102, 179, 0.25);
+      transition: all 0.4s ease;
+    }
+    
+    .memory-box:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(255, 102, 179, 0.4);
+      z-index: 1;
+    }
+    
+    .memory-box img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .memory-box:hover img {
+      transform: scale(1.1);
+    }
+    
+    .memory-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 102, 179, 0.8);
+      color: white;
+      padding: 12px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      text-align: center;
+    }
+    
+    .memory-box:hover .memory-caption {
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .memory-gallery {
+        gap: 15px;
+      }
+      
+      .memory-box {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .memory-box {
+        width: 100%;
+        height: 300px;
+        max-width: 350px;
+      }
+      
+      .memory-caption {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+    }
+    
+    /* Countdown timer */
+    .countdown-container {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      margin: 30px auto;
+      max-width: 500px;
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .countdown-title {
+      color: #ff66b3;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 15px;
+    }
+    
+    .countdown-display {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+    }
+    
+    .countdown-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff66b3;
+    }
+    
+    .countdown-label {
+      font-size: 14px;
+      color: #888;
+    }
+    
+    /* Interactive heart button */
+    .heart-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 30px;
+      color: #ff66b3;
+      transition: transform 0.3s ease;
+      margin: 20px auto;
+      display: block;
+    }
+    
+    .heart-button:hover {
+      transform: scale(1.3);
+    }
+    
+    .heart-count {
+      display: block;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      color: #ff66b3;
+    }
+    
+    /* Music player */
+    .music-player {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    
+    .music-title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    /* Modal */
+    .love-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      animation: modalFadeIn 0.5s ease;
+      border: 3px solid #ff66b3;
+    }
+    
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #ff66b3;
+    }
+    
+    /* Interactive love note */
+    .note-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .note-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ffcce0;
+      border-radius: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      margin-bottom: 15px;
+      resize: none;
+    }
+    
+    .note-send {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .note-send:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+    }
+ </style>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500 uppercase text-red-500"
+            >Mj</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="nav-link block py-2 px-3 text-pink-800 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-pink-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section id="header">
+    <div class="header">
+      <div class="header-content letter">
+        <h1 class="mb-8 title text-center text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
+          Happy 1st Anniversary My Love 💕
+        </h1>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          To my one and only mahal
+        </p>
+        
+        <p class="mt-4">
+         There are so many things I want to say, and no words will ever be enough to express how much I love you, how much I appreciate you, and how thankful I am to have you in my life. But I’ll try, because you deserve to be reminded every single day of how much you mean to me.
+        </p>
+        
+        <p class="mt-4">
+        Thank you, mahal, for all the efforts you put into our relationship. Every message, every call, every moment you spend reassuring me, supporting me, loving me it never goes unnoticed. I know long-distance isn’t easy. It comes with its own set of challenges, pain, and longing. But through it all, you’ve stayed. You’ve remained patient, faithful, and loving. You never gave up on us, even during our difficult days. And for that, I am endlessly grateful.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+       <span class="heart-highlight">Thank you</span> for choosing me every day, even when I'm at my lowest, even when I'm not at my best. You've seen my flaws, my insecurities, and the parts of me I try to hide but you still chose to <span class="highlight">love me anyway</span>. That kind of love is rare, and I'm so lucky to have it with you.
+        </p>
+        
+        <p class="mt-4">
+        Sometimes, I ask myself what I did to deserve someone as <span class="highlight">amazing as you</span>. Your heart is pure, your love is genuine, and your strength amazes me. You inspire me to become a better version of myself. Because of you, I've learned what real love feels like patient, kind, and unconditional.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+        You are my <span class="highlight">peace</span>, my <span class="highlight">home</span>, my <span class="highlight">everything</span>. And when I say I want to marry you someday, I mean it with all my heart. I dream of a future where we no longer have to count the days and nights we're apart, where I can finally hold your hand and never let it go. I imagine waking up next to you, building a life together, reaching our goals hand in hand, and facing every chapter of life together no longer from a distance, but side by side.
+        </p>
+        
+        <p class="mt-4">
+        Please always remember that <span class="heart-highlight">you are worth it</span>every second, every effort, every sacrifice. You are beautiful, inside and out. Don't ever doubt your worth, because to me, you are the most precious soul in this world. I am always proud of you. Whether it's your small wins or big milestones, know that I'm always here, cheering you on, believing in you, and loving you deeply.
+        </p>
+        
+        <p class="mt-4">
+         Let's keep moving forward, <span class="highlight">mahal</span>. Let's keep holding on and working toward the life we both dream of. I believe in us. I believe in our love. And no matter what happens, I'll always be here your number one supporter, your safe place, your biggest fan.
+        </p>
+          <p class="mt-4">
+        Thank you for your love, your strength, your loyalty, and your existence. I love you more than words can ever say. And I can't wait for the day I get to finally hold you in my arms and tell you all of this in person.
+        </p>
+        
+        <div class="mt-6 text-right">
+          <p>Forever yours,</p>
+          <p>Your love, mahal, hubbie ♡</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="header-title justify-center flex mt-8">
+      <h1 class="text-4xl font-pacifico text-pink-500">I love You So Much (˶˃ ᵕ ˂˶)</h1>
+    </div>
+    
+    <div class="carousel-header">
+      <div class="carousel-content">
+        <img src="./image/aniver.png" alt="">
+      </div>
+    </div>
+
+    <div class="flower-header">
+      <a href="1st-anniversary-flower.html">
+        <button class="gift-button">♡ Click For Your Special Anniversary Gift ♡</button>
+      </a>
+    </div>
+
+    <!-- New interactive countdown to 2 year anniversary -->
+    <div class="countdown-container">
+      <h3 class="countdown-title">Counting Down To Our 2 Year Anniversary</h3>
+      <div class="countdown-display" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Beauty Appreciation Gallery -->
+    <div class="beauty-section">
+      <h2 class="text-center mt-12 mb-6 text-3xl font-pacifico text-pink-500">Your Beauty Takes My Breath Away</h2>
+      
+      <p class="beauty-intro">
+        Every time I look at you, I'm reminded of how incredibly lucky I am. Your beauty radiates from within and shines so brightly. These moments captured in time remind me of how beautiful you are, inside and out.
+      </p>
+      
+      <div class="beauty-gallery">
+        <div class="beauty-item">
+          <div class="beauty-image-wrapper">
+            <img src="./image/ani1.jpg" alt="Beautiful You" onerror="this.src='https://via.placeholder.com/400x500?text=Your+Beauty'">
+            <div class="beauty-overlay">
+              <span class="beauty-heart">♡</span>
+            </div>
+          </div>
+          <p class="beauty-caption">Your smile lights up my world</p>
+        </div>
+        
+        <div class="beauty-item">
+          <div class="beauty-image-wrapper">
+            <img src="./image/ani3.jpg" alt="Beautiful You" onerror="this.src='https://via.placeholder.com/400x500?text=Your+Beauty'">
+            <div class="beauty-overlay">
+              <span class="beauty-heart">♡</span>
+            </div>
+          </div>
+          <p class="beauty-caption">Those eyes I get lost in</p>
+        </div>
+        
+        <div class="beauty-item">
+          <div class="beauty-image-wrapper">
+            <img src="./image/ani6.jpg" alt="Beautiful You" onerror="this.src='https://via.placeholder.com/400x500?text=Your+Beauty'">
+            <div class="beauty-overlay">
+              <span class="beauty-heart">♡</span>
+            </div>
+          </div>
+          <p class="beauty-caption">Your beauty leaves me speechless</p>
+        </div>
+        
+        <div class="beauty-item">
+          <div class="beauty-image-wrapper">
+            <img src="./image/ani5.jpg" alt="Beautiful You" onerror="this.src='https://via.placeholder.com/400x500?text=Your+Beauty'">
+            <div class="beauty-overlay">
+              <span class="beauty-heart">♡</span>
+            </div>
+          </div>
+          <p class="beauty-caption">A goddess in every way</p>
+        </div>
+      </div>
+      
+      <div class="beauty-message">
+        <p class="beauty-text">
+          <span class="beauty-first-letter">Y</span>our beauty goes far beyond what any photo could capture. It's in the way you laugh, the kindness in your heart, and the love you show me every day. You are the most beautiful person I've ever known, and I fall more in love with you each time I see you. I am the luckiest person alive to call you mine. I love everything about you, inside and out.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Interactive heart button -->
+    <div class="text-center">
+      <button id="heart-button" class="heart-button">❤️</button>
+      <span class="heart-count" id="heart-count">Click the heart to show your love!</span>
+    </div>
+    
+  
+    
+    <!-- Music player -->
+    <div class="music-player">
+      <h3 class="music-title">Our Song</h3>
+      <audio controls style="width: 100%">
+        <source src="./image/feb14.mp3" type="audio/mpeg" onerror="this.parentElement.innerHTML = 'Add your special song audio file here'">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    
+ 
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  
+  <script>
+    // Create floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      heart.style.position = 'absolute';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.color = `rgba(255, ${Math.floor(Math.random() * 100) + 100}, ${Math.floor(Math.random() * 100) + 100}, ${Math.random() * 0.5 + 0.5})`;
+      heart.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+      heart.innerHTML = '♡';
+      heart.style.animation = 'float 3s linear forwards';
+      
+      document.getElementById('hearts-container').appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    
+    setInterval(createHeart, 300);
+    
+    // CSS for the floating animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Anniversary countdown timer
+    function updateCountdown() {
+      // Set the date for your 2 year anniversary
+      const anniversary = new Date("2026-05-25T00:00:00"); // Update with your actual date
+      const now = new Date();
+      
+      const diff = anniversary - now;
+      
+      // Check if anniversary has passed
+      if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById("days").innerText = days.toString().padStart(2, "0");
+      document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
+    }
+    
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Interactive heart button
+    let heartCount = 0;
+    const heartButton = document.getElementById("heart-button");
+    const heartCountDisplay = document.getElementById("heart-count");
+    
+    heartButton.addEventListener("click", function() {
+      heartCount++;
+      
+      // Create multiple floating hearts on click
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => createHeart(), i * 100);
+      }
+      
+      // Update text based on number of clicks
+      if (heartCount === 1) {
+        heartCountDisplay.innerText = "You've sent 1 heart! I love you too!";
+      } else if (heartCount < 10) {
+        heartCountDisplay.innerText = `You've sent ${heartCount} hearts! Keep going!`;
+      } else if (heartCount < 20) {
+        heartCountDisplay.innerText = `${heartCount} hearts! You really love me!`;
+      } else {
+        heartCountDisplay.innerText = `${heartCount} hearts! You're amazing! I love you infinitely!`;
+      }
+      
+      // Show modal after certain number of hearts
+      if (heartCount === 10) {
+        showModal("You're the sweetest! Thank you for the hearts!");
+      }
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById("love-modal");
+    const closeModal = document.getElementById("close-modal");
+    
+    function showModal(message) {
+      document.getElementById("special-message").innerText = message || "I love you more than words can express!";
+      modal.style.display = "flex";
+    }
+    
+    closeModal.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+    
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+    
+    // Interactive love note
+    const sendNote = document.getElementById("send-note");
+    
+    sendNote.addEventListener("click", function() {
+      const note = document.getElementById("love-note").value;
+      if (note.trim() !== "") {
+        showModal("Your message: \"" + note + "\"\n\nThank you for your sweet words! I love you!");
+        document.getElementById("love-note").value = "";
+      } else {
+        alert("Please write a love note before sending!");
+      }
+    });
+    
+    // Memory gallery hover effect (already handled by CSS)
+    
+    // Easter egg - konami code
+    let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          showModal("You found the secret code! You're amazing! 💕");
+          
+          // Create heart explosion
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => createHeart(), i * 50);
+          }
+          
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+  </script>
+
+  <style>
+    /* Beauty Appreciation Gallery Styles */
+    .beauty-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    
+    .beauty-intro {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3rem;
+      color: #585858;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+    
+    .beauty-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .beauty-item {
+      width: 250px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .beauty-item:hover {
+      transform: translateY(-8px);
+    }
+    
+    .beauty-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(255, 102, 179, 0.2);
+      aspect-ratio: 3/4;
+    }
+    
+    .beauty-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    
+    .beauty-item:hover img {
+      transform: scale(1.07);
+    }
+    
+    .beauty-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(255, 102, 179, 0.3), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .beauty-heart {
+      font-size: 80px;
+      color: white;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.5s ease;
+    }
+    
+    .beauty-item:hover .beauty-overlay {
+      opacity: 1;
+    }
+    
+    .beauty-item:hover .beauty-heart {
+      opacity: 0.9;
+      transform: scale(1) rotate(10deg);
+    }
+    
+    .beauty-caption {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      color: #ff66b3;
+      margin-top: 12px;
+      font-weight: 600;
+      padding: 0 5px;
+    }
+    
+    .beauty-message {
+      background-color: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+      border: 2px solid #ffcce0;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+    
+    .beauty-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #585858;
+      text-align: center;
+    }
+    
+    .beauty-first-letter {
+      font-size: 2.2rem;
+      color: #ff66b3;
+      font-weight: bold;
+      margin-right: 2px;
+    }
+    
+    /* Animation for beauty items */
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .beauty-gallery {
+        gap: 15px;
+      }
+      
+      .beauty-item {
+        width: calc(50% - 15px);
+      }
+      
+      .beauty-intro {
+        font-size: 1.1rem;
+      }
+      
+      .beauty-text {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .beauty-item {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .beauty-caption {
+        font-size: 1.1rem;
+      }
+      
+      .beauty-message {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</body>
+</html>
