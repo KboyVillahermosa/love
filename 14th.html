@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+    rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+    <title>14th Monthsary I Love You</title>
+</head>
+ <style>
+   body {
+     background-color: #fff9fb;
+     background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M10 10 H 90 V 90 H 10 L 10 10" fill="none" stroke-width="1" stroke-dasharray="0.5,4" stroke="rgba(255,166,193,0.3)"/><circle cx="50" cy="50" r="5" fill="rgba(255,166,193,0.3)"/></svg>');
+   }
+   .header {
+      justify-content: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: 100vh;
+      align-items: center;
+      padding: 20px;
+    }
+    @media screen and (max-width: 12500px) {
+      .header {
+        height: auto;
+        margin-top: 100px;
+      }
+    }
+    .header-content {
+      width: 100%;
+      max-width: 800px;
+      padding: 30px;
+      border-radius: 20px;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    .nav-link {
+      color: #ff38a1; /* Pink color */
+    }
+    .nav-link:hover {
+      color: pink; /* Blue on hover */
+    }
+    .message{
+      justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: center;
+      height: 30vh;
+      padding: 20px;
+    }
+    .message-content{
+      width: 100%;
+      padding: 30px;
+      background: #F05252;
+      max-width: 750px;
+    }
+    .message p {
+      position: relative;
+      color: white;
+      overflow: hidden;
+    }
+
+    .message p span {
+      opacity: 0;
+      position: relative;
+      display: inline-block;
+      animation: typeWriter 4s steps(50, end) forwards;
+    }
+
+    @keyframes typeWriter {
+      from {
+        width: 0;
+      }
+      to {
+        opacity: 1;
+        width: auto;
+      }
+    }
+
+    .third-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .third-image-content{
+      width: 100%;
+      max-width: 600px;
+    }
+    .flower-header{
+      justify-content: center;
+      margin-top: 20px;
+      display: flex;
+      padding: 20px;
+    }
+    .counts-header{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    .count-content h1{
+      font-size: clamp(1.25rem, 0.4688rem + 2.5vw, 1.875rem);
+      font-weight: 500;
+    }
+    #time{
+      font-size: clamp(1.875rem, 1.0938rem + 2.5vw, 2.5rem);
+    }
+
+    .video-header{
+      justify-content: center;
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .video-content video{
+      width: 100%;
+      max-width: 600px;
+      height: 50vh;
+    }
+
+    .header-image{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .header-image-content{
+      width: 100%;
+      max-width: 700px;
+      height: 100vh;
+    }
+
+    @media screen and (max-width: 600px) {
+      .header-image-content img {
+        height: auto;
+      }
+    }
+
+    .carousel-header{
+      justify-content: center;
+      display: flex;
+      margin-top: 50px;
+      padding: 20px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .carousel-content{
+      width: 100%;
+      max-width: 700px;
+    }
+    .carousel-content img{
+      width: 100%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    h1.title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .letter p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #585858;
+    }
+    
+    .heart-divider {
+      text-align: center;
+      margin: 15px 0;
+      color: #ff66b3;
+      font-size: 24px;
+    }
+    
+    .gift-button {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+    
+    .gift-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(255, 102, 179, 0.4);
+    }
+    
+    .floating-hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Interactive features CSS */
+    .memory-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 15px;
+    }
+    
+    .memory-box {
+      width: 300px;
+      height: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 102, 179, 0.25);
+      transition: all 0.4s ease;
+    }
+    
+    .memory-box:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 24px rgba(255, 102, 179, 0.4);
+      z-index: 1;
+    }
+    
+    .memory-box img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    
+    .memory-box:hover img {
+      transform: scale(1.1);
+    }
+    
+    .memory-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 102, 179, 0.8);
+      color: white;
+      padding: 12px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      text-align: center;
+    }
+    
+    .memory-box:hover .memory-caption {
+      transform: translateY(0);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .memory-gallery {
+        gap: 15px;
+      }
+      
+      .memory-box {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .memory-box {
+        width: 100%;
+        height: 300px;
+        max-width: 350px;
+      }
+      
+      .memory-caption {
+        transform: translateY(0);
+        opacity: 0.9;
+      }
+    }
+    
+    /* Countdown timer */
+    .countdown-container {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      margin: 30px auto;
+      max-width: 500px;
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .countdown-title {
+      color: #ff66b3;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 15px;
+    }
+    
+    .countdown-display {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+    }
+    
+    .countdown-number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff66b3;
+    }
+    
+    .countdown-label {
+      font-size: 14px;
+      color: #888;
+    }
+    
+    /* Interactive heart button */
+    .heart-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 30px;
+      color: #ff66b3;
+      transition: transform 0.3s ease;
+      margin: 20px auto;
+      display: block;
+    }
+    
+    .heart-button:hover {
+      transform: scale(1.3);
+    }
+    
+    .heart-count {
+      display: block;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      color: #ff66b3;
+    }
+    
+    /* Music player */
+    .music-player {
+      max-width: 400px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      border: 2px solid #ffcce0;
+    }
+    
+    .music-title {
+      font-family: 'Pacifico', cursive;
+      color: #ff66b3;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    /* Modal */
+    .love-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      animation: modalFadeIn 0.5s ease;
+      border: 3px solid #ff66b3;
+    }
+    
+    @keyframes modalFadeIn {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #ff66b3;
+    }
+    
+    /* Interactive love note */
+    .note-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+      text-align: center;
+      border: 2px solid #ffcce0;
+    }
+    
+    .note-textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      border: 1px solid #ffcce0;
+      border-radius: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      margin-bottom: 15px;
+      resize: none;
+    }
+    
+    .note-send {
+      background: linear-gradient(to right, #ff66b3, #ff9ed2);
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .note-send:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255, 102, 179, 0.3);
+    }
+ </style>
+<body>
+    <div class="floating-hearts" id="hearts-container"></div>
+    
+    <nav
+      class="nav bg-white border-gray-200 dark:bg-gray-900 fixed top-0 z-10 w-full">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="index.html"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white uppercase text-red-500 uppercase text-red-500"
+            >Mj</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="nav-link block py-2 px-3 text-pink-800 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-pink-500"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  
+  <section id="header">
+    <div class="header">
+      <div class="header-content letter">
+        <h1 class="mb-8 title text-center text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">
+          Happy 14th Monthsary My Love 💕
+        </h1>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          My dearest love,
+        </p>
+        
+        <p class="mt-4">
+          As we celebrate our 14th month together, my heart overflows with so much love and gratitude for you. Every single day, you amaze me with your strength, your kindness, and the way you love me so unconditionally despite the distance between us. I am so incredibly blessed to have you in my life.
+        </p>
+        
+        <p class="mt-4">
+          Thank you, my love, for always believing in me and supporting my dreams. When I feel lost or discouraged, you're always there with your encouraging words and unwavering faith in me. You push me to be better, to reach higher, and to never give up. Your support means everything to me, and I couldn't have come this far without you by my side.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          The distance is so hard sometimes. There are moments when I just want to reach through the screen and hold you tight, to feel your warmth against me, to kiss you and tell you how much I love you in person. I dream about the day when I can wake up next to you, when I can hug you whenever I want, and when we don't have to say goodbye through a screen.
+        </p>
+        
+        <p class="mt-4">
+          But even with all the miles between us, your love reaches me every day. In every message, every call, every smile you share with me - I feel your love surrounding me like the warmest embrace. You make this long-distance relationship worth every challenge, every sleepless night, every moment of missing you.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          I want you to know how proud I am of you - of your strength in handling our relationship, of your patience with me, of your own dreams and ambitions. You inspire me every single day to be the best version of myself, not just for me, but for us and our future together.
+        </p>
+        
+        <p class="mt-4">
+          Thank you for choosing to love me every day, for staying committed to us when it would be easier to give up, for making this relationship a priority in your life. Thank you for your understanding when I'm busy, your comfort when I'm stressed, and your love that never wavers.
+        </p>
+        
+        <div class="heart-divider">♡ ♡ ♡</div>
+        
+        <p class="mt-4">
+          I promise to keep working towards our future together, to never take your love for granted, and to love you more fiercely with each passing day. I promise to support your dreams just as you support mine, to be your safe space, and to make every sacrifice worth it for us.
+        </p>
+        
+        <p class="mt-4">
+          I love you beyond words, beyond distance, beyond time. I love you with every beat of my heart, and I always will.
+        </p>
+        
+        <div class="mt-6 text-right">
+          <p>Forever and always yours,</p>
+          <p>Your hubbie lovelove mahal ♡</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="carousel-header">
+      <div class="carousel-content">
+        <img src="./image/14th.png" alt="">
+      </div>
+    </div>
+
+    <div class="flower-header">
+      <a href="11flower.html">
+        <button class="gift-button">♡ Click For Your Special Gift ♡</button>
+      </a>
+    </div>
+
+   
+    
+   
+    
+ 
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.11/build/player/lottie.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  
+  <script>
+    // Create floating hearts animation
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      heart.style.position = 'absolute';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      heart.style.color = `rgba(255, ${Math.floor(Math.random() * 100) + 100}, ${Math.floor(Math.random() * 100) + 100}, ${Math.random() * 0.5 + 0.5})`;
+      heart.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+      heart.innerHTML = '♡';
+      heart.style.animation = 'float 3s linear forwards';
+      
+      document.getElementById('hearts-container').appendChild(heart);
+      
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    
+    setInterval(createHeart, 300);
+    
+    // CSS for the floating animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float {
+        0% {
+          top: 100%;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          top: -10%;
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Anniversary countdown timer
+    function updateCountdown() {
+      // Set the date for your 1 year anniversary
+      const anniversary = new Date("2025-05-25T00:00:00"); // Update with your actual date
+      const now = new Date();
+      
+      const diff = anniversary - now;
+      
+      // Check if anniversary has passed
+      if (diff <= 0) {
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById("days").innerText = days.toString().padStart(2, "0");
+      document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
+    }
+    
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    
+    // Interactive heart button
+    let heartCount = 0;
+    let hugCount = 0;
+    let kissCount = 0;
+    const heartButton = document.getElementById("heart-button");
+    const heartCountDisplay = document.getElementById("heart-count");
+    const hugBtn = document.getElementById("hug-btn");
+    const kissBtn = document.getElementById("kiss-btn");
+    const hugCountDisplay = document.getElementById("hug-count");
+    const kissCountDisplay = document.getElementById("kiss-count");
+    
+    heartButton.addEventListener("click", function() {
+      heartCount++;
+      
+      // Create multiple floating hearts on click
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => createHeart(), i * 100);
+      }
+      
+      // Update text based on number of clicks
+      if (heartCount === 1) {
+        heartCountDisplay.innerText = "You've sent 1 heart! I love you too!";
+      } else if (heartCount < 10) {
+        heartCountDisplay.innerText = `You've sent ${heartCount} hearts! Keep going!`;
+      } else if (heartCount < 20) {
+        heartCountDisplay.innerText = `${heartCount} hearts! You really love me!`;
+      } else {
+        heartCountDisplay.innerText = `${heartCount} hearts! You're amazing! I love you infinitely!`;
+      }
+      
+      // Show modal after certain number of hearts
+      if (heartCount === 10) {
+        showModal("You're the sweetest! Thank you for the hearts!");
+      }
+    });
+    
+    // Hug button functionality
+    hugBtn.addEventListener("click", function() {
+      hugCount++;
+      hugCountDisplay.innerText = hugCount;
+      
+      // Create heart explosion for hugs
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => createHeart(), i * 80);
+      }
+      
+      // Show special messages
+      if (hugCount === 1) {
+        showModal("🤗 Your first virtual hug received! I wish I could hug you back right now!");
+      } else if (hugCount === 5) {
+        showModal("🤗 5 hugs! I'm sending you the biggest, warmest hug back! I miss holding you so much!");
+      } else if (hugCount === 10) {
+        showModal("🤗 10 hugs! I can almost feel your arms around me. I love you so much and can't wait to hug you for real!");
+      } else if (hugCount % 20 === 0) {
+        showModal(`🤗 ${hugCount} hugs! You're filling my heart with so much warmth and love. I'm hugging you back with all my heart!`);
+      }
+    });
+    
+    // Kiss button functionality
+    kissBtn.addEventListener("click", function() {
+      kissCount++;
+      kissCountDisplay.innerText = kissCount;
+      
+      // Create special heart pattern for kisses
+      for (let i = 0; i < 10; i++) {
+        setTimeout(() => createHeart(), i * 60);
+      }
+      
+      // Show special messages
+      if (kissCount === 1) {
+        showModal("💋 Your first kiss received! Sending you sweet kisses back, my love!");
+      } else if (kissCount === 5) {
+        showModal("💋 5 kisses! I'm blushing! I wish I could kiss your lips right now!");
+      } else if (kissCount === 10) {
+        showModal("💋 10 kisses! You're making me fall in love with you all over again! I can't wait to kiss you properly!");
+      } else if (kissCount % 15 === 0) {
+        showModal(`💋 ${kissCount} kisses! Every virtual kiss makes me long for the real thing even more. I love you endlessly!`);
+      }
+    });
+    
+    // Modal functionality
+    const modal = document.getElementById("love-modal");
+    const closeModal = document.getElementById("close-modal");
+    
+    function showModal(message) {
+      document.getElementById("special-message").innerText = message || "I love you more than words can express!";
+      modal.style.display = "flex";
+    }
+    
+    closeModal.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
+    
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+    
+    // Interactive love note
+    const sendNote = document.getElementById("send-note");
+    
+    sendNote.addEventListener("click", function() {
+      const note = document.getElementById("love-note").value;
+      if (note.trim() !== "") {
+        showModal("Your message: \"" + note + "\"\n\nThank you for sharing your heart with me! Your words mean everything to me. I love you so much and I'm so grateful for your constant support and love! 💕");
+        document.getElementById("love-note").value = "";
+        
+        // Create extra hearts for love notes
+        for (let i = 0; i < 15; i++) {
+          setTimeout(() => createHeart(), i * 100);
+        }
+      } else {
+        alert("Please write a love note before sending! I want to hear from your heart ♡");
+      }
+    });
+    
+    // Memory gallery hover effect (already handled by CSS)
+    
+    // Easter egg - konami code
+    let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    
+    document.addEventListener('keydown', function(e) {
+      if (e.key === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+          showModal("You found the secret code! You're amazing! 💕\n\nHere's a special message: I promise to always support your dreams just like you support mine. Together, we can achieve anything! I can't wait for the day when we can celebrate all our victories in each other's arms! 🤗💋");
+          
+          // Create heart explosion
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => createHeart(), i * 50);
+          }
+          
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+  </script>
+</body>
+</html>

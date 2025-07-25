@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Image Generator</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        #text-image {
+            font-family: monospace;
+            font-size: 8px;
+            line-height: 8px;
+            white-space: pre;
+            overflow: hidden;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #controls {
+            margin: 20px 0;
+        }
+        input, button {
+            padding: 8px 12px;
+            margin: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Song Lyrics Image Generator</h1>
+    
+    <div id="controls">
+        <input type="file" id="imageInput" accept="image/*">
+        <button id="generateBtn">Generate Text Image</button>
+    </div>
+    
+    <canvas id="canvas" class="hidden"></canvas>
+    <div id="text-image"></div>
+
+    <script>
+        // The lyrics to use as the "pixels" of our image
+        const lyrics = `I'm too low to get up, I'm too high to fall off
+        I'm too split up to be left over, too wasted to be able to speak
+        Slowly so I can fit through the beat
+        Too complex to complain, this pain I'm in
+        Deep enough to swim in, and I'm too numb to feel
+        Let me show you how pain feels
+        Take this barbed wire, wrap it 'round your head and pull it tight
+        You're feeling what I feel inside, that's pain, that's hunger
+        That's wishing things would've changed for the better
+        Knowing they're never gonna change for the better
+        That's pain, that's neglect, that's not having no friends
+        That's growing up around people that never cared
+        That's why I like being alone, it hurts less
+        That's pain, that's survival, that's just keeping on breathing
+        When everyone around you is leaving
+        I'm close to the edge, don't push me
+        It's deep water I'm in but I'm floating
+        Drowning inside of my thoughts, I can't sleep
+        So I just keep going, I'm running on empty
+        My body is full of depleted fuel
+        But I'm still breathing, I'm still breathing
+        I'm still breathing, I'm still here
+        I'm still breathing, I'm still breathing
+        I'm still breathing, I'm still here`.repeat(20);
+
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const file = document.getElementById('imageInput').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        generateTextImage(img);
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert("Please select an image first.");
+            }
+        });
+
+        function generateTextImage(img) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size proportional to the image, but limit maximum dimensions
+            const maxWidth = 100; // Characters per line
+            const ratio = img.height / img.width;
+            const width = Math.min(maxWidth, img.width);
+            const height = Math.floor(width * ratio);
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Draw and process the image
+            ctx.drawImage(img, 0, 0, width, height);
+            const imageData = ctx.getImageData(0, 0, width, height);
+            const data = imageData.data;
+            
+            let result = '';
+            let lyricsIndex = 0;
+            
+            // Convert image to text
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const index = (y * width + x) * 4;
+                    const r = data[index];
+                    const g = data[index + 1];
+                    const b = data[index + 2];
+                    
+                    // Calculate brightness (0-255)
+                    const brightness = (0.299 * r + 0.587 * g + 0.114 * b);
+                    
+                    // Select character from lyrics based on position
+                    const char = lyrics[lyricsIndex % lyrics.length];
+                    lyricsIndex++;
+                    
+                    // For darker pixels, add the character; for lighter pixels, add space
+                    if (brightness < 180) {
+                        result += char;
+                    } else {
+                        result += ' ';
+                    }
+                }
+                result += '\n';
+            }
+            
+            // Display the result
+            document.getElementById('text-image').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
