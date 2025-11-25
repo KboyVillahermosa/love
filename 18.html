@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 18th Monthsary, My Love</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Cute floating elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: gentleFloat 8s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.4);
+            font-size: 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-10vh) rotate(180deg); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 
+                0 20px 60px rgba(255, 182, 193, 0.3),
+                0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 182, 193, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.1) 0%, transparent 50%);
+            animation: shimmer 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+
+        .title {
+            color: #d63384;
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(214, 51, 132, 0.2);
+            animation: titlePulse 3s ease-in-out infinite;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.05) rotate(1deg); }
+        }
+
+        .message {
+            color: #444;
+            font-size: 1.25em;
+            line-height: 2;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .message p {
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(214, 51, 132, 0.3);
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+            border-radius: 1px;
+        }
+
+        .apology-section {
+            background: linear-gradient(135deg, #ffe6e6, #fff0f0);
+            border: 2px solid rgba(214, 51, 132, 0.2);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 20px;
+            font-style: italic;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                inset 0 2px 10px rgba(255, 182, 193, 0.3),
+                0 5px 20px rgba(214, 51, 132, 0.1);
+        }
+
+        .apology-section::before {
+            content: '💕';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            opacity: 0.3;
+            animation: gentle-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-size: 1.4em;
+            color: #d63384;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date {
+            color: #888;
+            font-size: 1.1em;
+            margin-top: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .big-heart {
+            font-size: 4em;
+            color: #ff6b6b;
+            margin: 30px 0;
+            animation: heartbeat 2s ease-in-out infinite;
+            filter: drop-shadow(3px 3px 6px rgba(255, 107, 107, 0.3));
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
+            75% { transform: scale(1.1); }
+        }
+
+        .btn-red {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2em;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 20px rgba(255, 107, 107, 0.3),
+                0 3px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-red:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 12px 30px rgba(255, 107, 107, 0.4),
+                0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-red:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* Cute decorative elements */
+        .decoration {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.4);
+            font-size: 1.5em;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        .decoration:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 30px 20px;
+                margin: 20px;
+                border-radius: 25px;
+            }
+
+            .title {
+                font-size: 2.2em;
+            }
+
+            .message {
+                font-size: 1.1em;
+                line-height: 1.8;
+            }
+
+            .big-heart {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="top: 10%; left: 5%; font-size: 2em;">🌸</div>
+        <div class="floating-element" style="top: 20%; right: 10%; font-size: 1.5em; animation-delay: 2s;">✨</div>
+        <div class="floating-element" style="top: 40%; left: 15%; font-size: 2.5em; animation-delay: 4s;">🦋</div>
+        <div class="floating-element" style="top: 60%; right: 5%; font-size: 1.8em; animation-delay: 1s;">🌷</div>
+        <div class="floating-element" style="top: 80%; left: 8%; font-size: 2em; animation-delay: 3s;">💖</div>
+        <div class="floating-element" style="top: 30%; right: 20%; font-size: 1.3em; animation-delay: 5s;">⭐</div>
+    </div>
+    
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div class="main-content">
+            <!-- Decorative elements -->
+            <div class="decoration" style="top: 20px; left: 30px;">🌸</div>
+            <div class="decoration" style="top: 50px; right: 40px;">✨</div>
+            <div class="decoration" style="bottom: 80px; left: 50px;">🦋</div>
+            <div class="decoration" style="bottom: 120px; right: 60px;">🌷</div>
+            
+            <h1 class="title">Happy 18th Monthsary</h1>
+            <div class="big-heart">💖</div>
+            
+            <div class="message">
+                <p>My dearest love, my mahal ko,</p>
+                
+                <p>Today marks our <span class="highlight">18th month</span> together, and as I sit here thinking about our beautiful journey, my heart is filled with so much love and gratitude for you.</p>
+                
+                <div class="apology-section">
+                    <p><strong>I am deeply sorry</strong> for all the busy days at work that have kept me away from you. I know there were times when I couldn't give you the attention and time you deserve because of my work commitments. I'm sorry for every moment you felt alone or like you weren't my priority.</p>
+                    
+                    <p>Please know that even during my busiest days, <span class="highlight">you are always in my thoughts and in my heart</span>. No amount of work stress or deadlines could ever diminish the love I have for you.</p>
+                </div>
+                
+                <p><span class="highlight">Thank you, my love</span>, for all your efforts, for your endless love, and for being the most understanding partner I could ever ask for. Thank you for being patient when work demanded too much of my time, for supporting me through stressful days, and for never making me feel guilty about my responsibilities.</p>
+                
+                <p>I am so <span class="highlight">grateful</span> to have you in my life, mahal ko. Your understanding heart, your gentle soul, and your unwavering love have been my strength and comfort. You've shown me what true partnership looks like – loving someone not just during the easy times, but also during the challenging ones.</p>
+                
+                <p>These 18 months with you have taught me that love isn't just about the romantic moments; it's about having someone who understands your dreams, supports your goals, and loves you even when life gets overwhelming.</p>
+                
+                <p>You are my safe haven, my greatest blessing, and my favorite person in this world. Your smile brightens my darkest days, and your love gives me the courage to face any challenge.</p>
+                
+                <p><span class="highlight">I love you forever</span>, my mahal ko. Through busy seasons and peaceful moments, through challenges and celebrations, my love for you only grows stronger. Thank you for choosing to love me, for staying by my side, and for being the incredible woman you are.</p>
+                
+                <p>Happy 18th monthsary, lovelove. Here's to many more months of growing together, understanding each other, and building our beautiful love story.</p>
+            </div>
+            
+            <div class="big-heart">💕</div>
+            
+            <div class="signature">
+                Forever yours,<br>
+                With all my love and endless gratitude
+            </div>
+            
+            <div class="date">
+                18th Monthsary - A celebration of love, understanding, and forever
+            </div>
+              <div class="">
+                <a href="flower.html" style="text-decoration: none;">
+                    <div class="btn-red">
+                        Click Here for More Love 💕
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts animation with more variety
+        function createHeart() {
+            const hearts = ['💖', '💕', '💗', '💓', '💝', '🌸', '✨', '🦋'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            document.getElementById('hearts').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 800);
+        
+        // Create initial hearts
+        for(let i = 0; i < 8; i++) {
+            setTimeout(createHeart, i * 150);
+        }
+
+        // Add sparkle effect on hover for highlights
+        document.querySelectorAll('.highlight').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Add gentle parallax effect to floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
