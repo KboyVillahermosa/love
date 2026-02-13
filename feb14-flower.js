@@ -3,6 +3,24 @@ function showMessage() {
     const message = document.getElementById('message');
     box.style.transform = 'translateY(-50vh)';
     message.style.display = 'block';
+    
+    // Start heart animation
+    setInterval(createHeart, 300);
+}
+
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerText = '💖'; // Use heart emoji
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // 3s to 5s
+    heart.style.fontSize = Math.random() * 1.5 + 1 + "rem"; // Random size
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
 }
 
 function hideMessage() {
